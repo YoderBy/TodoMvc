@@ -6,6 +6,8 @@
     text-align: center;
   }
 .input_box{
+  display:flex;
+  
   border-style: solid;
   text-align:center;
   border-style: solid;
