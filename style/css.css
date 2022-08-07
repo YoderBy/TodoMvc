@@ -1,0 +1,45 @@
+.headline{
+    text-align: center;
+    
+  }
+  .task{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+  }
+  .main{
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 1%;
+  }
+  .rmv{
+      color: white;
+      background-color: red;
+      left: 1%;
+      display: none;
+      position: relative;
+  }
+  .task:hover .rmv{
+    display: block;
+  }
+  .unchk{
+      right: 1%;
+      position: relative;
+  }
+  .task_done{
+     display: flex;
+     flex-direction: row;
+     flex-wrap: nowrap;
+  }
+  
+  .task_done:hover .rmv{
+    display: block;
+  }
+  #done_tasks_tab {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+  }
+  .strike_through{
+     text-decoration: line-through;
+  }
