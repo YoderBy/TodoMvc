@@ -7,23 +7,31 @@
   </head>
 
   <body>
+    <div style="margin:0 20%">
     <h1 class="headline">
       ToDo MVC
     </h1>
-    <div>
-      <label>insert task: </label>
-      <input type="text" id="input_task">
+    <div class = "input_box">
+      <input type="text" id="input_task" class = "input_task" value = "What do YOU want to do?...">
       <button type="button" onclick="add_task()"> Add </button>
     </div>
-    <div id="answers" class = "main">
+    <div id="answers">
+        <h2 style =" margin-left: -37%">Remaining Tasks</h1>
     </div>
-    <div id="done" class = "main">
-        Done Tasks
-        <button id = "hide/show_btn" type="button" onclick="hide_done()"> Hide </button>
+<div style = "border-style: solid;">
+    <div class = "task" style = "justify-content: space-around;">
+        <h2>Done Tasks</h1>
+        <button id = "hide/show_btn" class = ".hide/show_btn" type="button" onclick="hide_done()"> Hide </button>
+    </div>
+
+    <div id="done">
     <div id ="done_tasks_tab" class = "done_tasks_tab">
         <label id = "flag" style = "display: none;">0</label>
     </div>
     </div>
-  </body>
+</div>  
+
+</body>
+
 
 </html>
