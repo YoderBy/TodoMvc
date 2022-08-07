@@ -6,7 +6,7 @@
     <script src="scripts/javascript.js"></script>
   </head>
 
-  <body>s
+  <body>
     <h1 class="headline">
       ToDo MVC
     </h1>
@@ -18,7 +18,10 @@
     <div id="answers" class = "main">
     </div>
     <div id="done" class = "main">
-    <div id ="done_tasks_tab">
+        Done Tasks
+        <button id = "hide/show_btn" type="button" onclick="hide_done()"> Hide </button>
+    <div id ="done_tasks_tab" class = "done_tasks_tab">
+        <label id = "flag" style = "display: none;">0</label>
     </div>
     </div>
   </body>

@@ -1,3 +1,12 @@
+window.addEventListener('load', function () {
+
+  document.getElementById("input_task").addEventListener("keypress", function(stroke) {
+    if (stroke.key == "Enter") {
+      add_task();
+    }
+  });
+
+})
 function add_task() {
     const task_num = document.getElementById("answers").childElementCount; //the task identifier
     const new_task = document.createElement('div');
@@ -13,18 +22,18 @@ function add_task() {
   <p>  ${task_num} </p>
   `;
   
-    new_task.id = `task_${task_num}`;
-    new_task.classList.add("task");
-    document.getElementById("input_task").value = '';
-    document.getElementById("answers").appendChild(new_task);
+  new_task.id = `task_${task_num}`;
+  new_task.classList.add("task");
+  document.getElementById("input_task").value = '';
+  document.getElementById("answers").appendChild(new_task);
   }
   
-  function remove_task(num) {
+function remove_task(num) {
     const victim_div = document.getElementById(`task_${num}`);
     victim_div.remove();
   }
   
-  function move_to_done(num) {
+function move_to_done(num) {
     
     const victim_div = document.getElementById(`task_${num}`);
     const re_born = document.createElement('div');
@@ -32,7 +41,7 @@ function add_task() {
     re_born.innerHTML  = document.getElementById(`task_${num}`).innerHTML;
     
     //preparing the done task
-    document.getElementById("done").appendChild(re_born); //adding
+    document.getElementById("done_tasks_tab").appendChild(re_born); //adding
     re_born.classList.add("task_done"); //css
     re_born.setAttribute("id",`task_${num}`);
     re_born.children[1].classList.add("strike_through");
@@ -41,7 +50,7 @@ function add_task() {
     victim_div.remove();
   }
   
-  function revive(num) {
+function revive(num) {
     //it should mimic move_to_done, but in reverse. It's so similar, I wonder if I should  just add a "location" parameter and merge them
     
     const victim_div = document.getElementById(`task_${num}`);
@@ -61,11 +70,18 @@ function add_task() {
     
     victim_div.remove();
   }
-  
-  //Enter adds tasks
-  document.getElementById("input_task").addEventListener("keypress", function(stroke) {
-    if (stroke.key == "Enter") {
-      add_task();
-    }
-  });
-  
+
+function hide_done(){
+  flag = document.getElementById("flag").innerHTML;
+  if (flag == 0){
+    document.getElementById("done_tasks_tab").style.display = "none";
+    document.getElementById("hide/show_btn").innerHTML = "Show";
+    document.getElementById("flag").innerHTML = 1;
+  }
+  if (flag == 1){
+    document.getElementById("done_tasks_tab").style.display = "flex";
+    document.getElementById("hide/show_btn").innerHTML = "Hide";
+    document.getElementById("flag").innerHTML = 0;
+  }
+}
+
