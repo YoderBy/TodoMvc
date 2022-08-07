@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
+<html><head>
     <title>Title of the document</title>
     <link rel="stylesheet" type="text/css" href="style/css.css">
     <script src="scripts/javascript.js"></script>
@@ -11,27 +9,117 @@
     <h1 class="headline">
       ToDo MVC
     </h1>
-    <div class = "input_box">
-      <input type="text" id="input_task" class = "input_task" value = "What do YOU want to do?...">
+
+    <div class="input_box">
+      <textarea id="input_task" class="input_task" placeholder="What do YOU want to do?..." aa="dsa"></textarea>
       <button type="button" onclick="add_task()"> Add </button>
     </div>
     <div id="answers">
-        <h2>Remaining Tasks</h1>
-    </div>
-<div style = "border-style: solid;">
-    <div class = "task" style = "justify-content: space-between;">
-        <h2>Done Tasks</h1>
-        <button id = "hide/show_btn" class = ".hide/show_btn" type="button" onclick="hide_done()"> Hide </button>
+        <h2>Remaining Tasks</h2>
+    <div id="task_1" class="task">
+    
+  <button type="button" class="unchk" id="task1_btn" onclick="move_to_done(1)">Done!</button>
+  
+  <textarea style="width: 50%" id="val_task1">משימה כוללת כותרת ותיאור</textarea>
+  
+  <button type="button" class="rmv" onclick="remove_task(1)">remove</button>
+  
+  </div><div id="task_2" class="task">
+    
+  <button type="button" class="unchk" id="task2_btn" onclick="move_to_done(2)">Done!</button>
+  
+  <textarea style="width: 50%" id="val_task2">משימה כוללת תאריך יצירה</textarea>
+  
+  <button type="button" class="rmv" onclick="remove_task(2)">remove</button>
+  
+  </div><div id="task_10" class="task">
+    
+  <button type="button" class="unchk" id="task10_btn" onclick="move_to_done(10)">Done!</button>
+  
+  <textarea style="width: 50%" id="val_task10">קוד קריא</textarea>
+  
+  <button type="button" class="rmv" onclick="remove_task(10)">remove</button>
+  
+  </div><div id="task_11" class="task">
+    
+  <button type="button" class="unchk" id="task11_btn" onclick="move_to_done(11)">Done!</button>
+  
+  <textarea style="width: 50%" id="val_task11">השקעה בעיצוב</textarea>
+  
+  <button type="button" class="rmv" onclick="remove_task(11)">remove</button>
+  
+  </div></div>
+<div style="border-style: solid;">
+    <div class="task" style="justify-content: space-between;">
+        <h2>Done Tasks</h2>
+        <button id="hide/show_btn" class=".hide/show_btn" type="button" onclick="hide_done()"> Hide </button>
     </div>
 
     <div id="done">
-    <div id ="done_tasks_tab" class = "done_tasks_tab">
-        <label id = "flag" style = "display: none;">0</label>
-    </div>
+    <div id="done_tasks_tab" class="done_tasks_tab">
+        <label id="flag" style="display: none;">0</label>
+    <div class="task_done" id="task_3">
+    
+  <button type="button" class="unchk" id="task3_btn" onclick="revive(3)">ToDo</button>
+  
+  <textarea style="width: 50%" id="val_task3" class="strike_through">האם הושלמה</textarea>
+  
+  <button type="button" class="rmv" onclick="remove_task(3)">remove</button>
+  
+  </div><div class="task_done" id="task_4">
+    
+  <button type="button" class="unchk" id="task4_btn" onclick="revive(4)">ToDo</button>
+  
+  <textarea style="width: 50%" id="val_task4" class="strike_through">אינדיקציה שהושלמה</textarea>
+  
+  <button type="button" class="rmv" onclick="remove_task(4)">remove</button>
+  
+  </div><div class="task_done" id="task_5">
+    
+  <button type="button" class="unchk" id="task5_btn" onclick="revive(5)">ToDo</button>
+  
+  <textarea style="width: 50%" id="val_task5" class="strike_through">דרך להסתיר ולהציג משימות שהושלמו</textarea>
+  
+  <button type="button" class="rmv" onclick="remove_task(5)">remove</button>
+  
+  </div><div class="task_done" id="task_6">
+    
+  <button type="button" class="unchk" id="task6_btn" onclick="revive(6)">ToDo</button>
+  
+  <textarea style="width: 50%" id="val_task6" class="strike_through">הוספת משימה חדשה</textarea>
+  
+  <button type="button" class="rmv" onclick="remove_task(6)">remove</button>
+  
+  </div><div class="task_done" id="task_7">
+    
+  <button type="button" class="unchk" id="task7_btn" onclick="revive(7)">ToDo</button>
+  
+  <textarea style="width: 50%" id="val_task7" class="strike_through">עריכת משימות</textarea>
+  
+  <button type="button" class="rmv" onclick="remove_task(7)">remove</button>
+  
+  </div><div class="task_done" id="task_8">
+    
+  <button type="button" class="unchk" id="task8_btn" onclick="revive(8)">ToDo</button>
+  
+  <textarea style="width: 50%" id="val_task8" class="strike_through">עבודה עם גיט</textarea>
+  
+  <button type="button" class="rmv" onclick="remove_task(8)">remove</button>
+  
+  </div><div class="task_done" id="task_9">
+    
+  <button type="button" class="unchk" id="task9_btn" onclick="revive(9)">ToDo</button>
+  
+  <textarea style="width: 50%" id="val_task9" class="strike_through">חלוקה לקבצים</textarea>
+  
+  <button type="button" class="rmv" onclick="remove_task(9)">remove</button>
+  
+  </div></div>
     </div>
 </div>  
 
-</body>
 
 
-</html>
+
+
+</div></body></html>

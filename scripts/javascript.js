@@ -17,7 +17,7 @@ function add_task() {
     
   <button type = "button" class = "unchk" id = "task${task_num}_btn" onclick = "move_to_done(${task_num})">Done!</button>
   
-  <input type = "text" id = "val_task${task_num}" value = "${input_value}""> 
+  <textarea style = "width: 50%" id = "val_task${task_num}">${input_value}</textarea>
   
   <button type = "button" class = "rmv" onclick = "remove_task(${task_num})">remove</button>
   
