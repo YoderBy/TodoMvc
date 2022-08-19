@@ -37,7 +37,8 @@
       left: 1%;
       display: none;
       position: relative;
-  }
+  } 
+  /* CR - what is rmv? don't save space in your names */
   .task:hover .rmv{
     display: flex;
   }
