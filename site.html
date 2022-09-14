@@ -11,48 +11,52 @@
     </h1>
 
     <div class="input_box">
+      <script>
+        const task_num = document.getElementById("answers").childElementCount;
+        const input_value = document.getElementById("input_task").value;
+      </script>
       <textarea id="input_task" class="input_task" placeholder="What do YOU want to do?..." aa="dsa"></textarea>
-      <button type="button" onclick="add_task()" style = "margin: 5%;"> Add </button>
+      <button type="button" onclick= "addTask(document.getElementById('answers').childElementCount, document.getElementById('input_task').value)" style = "margin: 5%;"> Add </button>
     </div>
     <div id="answers">
         <h2>Remaining Tasks</h2>
     <div id="task_1" class="task">
     
-  <button type="button" class="unchk" id="task1_btn" onclick="move_to_done(1)">Done!</button>
+  <button type="button" class="unchk" id="task1_btn" onclick="moveToDone(1)">Done!</button>
   
   <textarea style="width: 50%" id="val_task1">משימה כוללת כותרת ותיאור</textarea>
   
-  <button type="button" class="rmv" onclick="remove_task(1)">remove</button>
+  <button type="button" class="rmv" onclick="removeTask(1)">remove</button>
   
   </div><div id="task_2" class="task">
     
-  <button type="button" class="unchk" id="task2_btn" onclick="move_to_done(2)">Done!</button>
+  <button type="button" class="unchk" id="task2_btn" onclick="moveToDone(2)">Done!</button>
   
   <textarea style="width: 50%" id="val_task2">משימה כוללת תאריך יצירה</textarea>
   
-  <button type="button" class="rmv" onclick="remove_task(2)">remove</button>
+  <button type="button" class="rmv" onclick="removeTask(2)">remove</button>
   
   </div><div id="task_10" class="task">
     
-  <button type="button" class="unchk" id="task10_btn" onclick="move_to_done(10)">Done!</button>
+  <button type="button" class="unchk" id="task10_btn" onclick="moveToDone(10)">Done!</button>
   
   <textarea style="width: 50%" id="val_task10">קוד קריא</textarea>
   
-  <button type="button" class="rmv" onclick="remove_task(10)">remove</button>
+  <button type="button" class="rmv" onclick="removeTask(10)">remove</button>
   
   </div><div id="task_11" class="task">
     
-  <button type="button" class="unchk" id="task11_btn" onclick="move_to_done(11)">Done!</button>
+  <button type="button" class="unchk" id="task11_btn" onclick="moveToDone(11)">Done!</button>
   
   <textarea style="width: 50%" id="val_task11">השקעה בעיצוב</textarea>
   
-  <button type="button" class="rmv" onclick="remove_task(11)">remove</button>
+  <button type="button" class="rmv" onclick="removeTask(11)">remove</button>
   
   </div></div>
 <div style="border-style: solid;">
     <div class="task" style="justify-content: space-between;">
         <h2>Done Tasks</h2>
-        <button id="hide/show_btn" class=".hide/show_btn" type="button" onclick="hide_done()"> Hide </button>
+        <button id="hide/show_btn" class=".hide/show_btn" type="button" onclick="hideDone()"> Hide </button>
     </div>
 
     <div id="done">
@@ -64,7 +68,7 @@
   
   <textarea style="width: 50%" id="val_task3" class="strike_through">האם הושלמה</textarea>
   
-  <button type="button" class="rmv" onclick="remove_task(3)">remove</button>
+  <button type="button" class="rmv" onclick="removeTask(3)">remove</button>
   
   </div><div class="task_done" id="task_4">
     
@@ -72,7 +76,7 @@
   
   <textarea style="width: 50%" id="val_task4" class="strike_through">אינדיקציה שהושלמה</textarea>
   
-  <button type="button" class="rmv" onclick="remove_task(4)">remove</button>
+  <button type="button" class="rmv" onclick="removeTask(4)">remove</button>
   
   </div><div class="task_done" id="task_5">
     
@@ -80,7 +84,7 @@
   
   <textarea style="width: 50%" id="val_task5" class="strike_through">דרך להסתיר ולהציג משימות שהושלמו</textarea>
   
-  <button type="button" class="rmv" onclick="remove_task(5)">remove</button>
+  <button type="button" class="rmv" onclick="removeTask(5)">remove</button>
   
   </div><div class="task_done" id="task_6">
     
@@ -88,7 +92,7 @@
   
   <textarea style="width: 50%" id="val_task6" class="strike_through">הוספת משימה חדשה</textarea>
   
-  <button type="button" class="rmv" onclick="remove_task(6)">remove</button>
+  <button type="button" class="rmv" onclick="removeTask(6)">remove</button>
   
   </div><div class="task_done" id="task_7">
     
@@ -96,7 +100,7 @@
   
   <textarea style="width: 50%" id="val_task7" class="strike_through">עריכת משימות</textarea>
   
-  <button type="button" class="rmv" onclick="remove_task(7)">remove</button>
+  <button type="button" class="rmv" onclick="removeTask(7)">remove</button>
   
   </div><div class="task_done" id="task_8">
     
@@ -104,7 +108,7 @@
   
   <textarea style="width: 50%" id="val_task8" class="strike_through">עבודה עם גיט</textarea>
   
-  <button type="button" class="rmv" onclick="remove_task(8)">remove</button>
+  <button type="button" class="rmv" onclick="removeTask(8)">remove</button>
   
   </div><div class="task_done" id="task_9">
     
@@ -112,7 +116,7 @@
   
   <textarea style="width: 50%" id="val_task9" class="strike_through">חלוקה לקבצים</textarea>
   
-  <button type="button" class="rmv" onclick="remove_task(9)">remove</button>
+  <button type="button" class="rmv" onclick="removeTask(9)">remove</button>
   
   <!-- CR Minor- it would be so much easier to have this initial example of TODO items if you had a way to convert the raw data to the full task element 
   -->  
