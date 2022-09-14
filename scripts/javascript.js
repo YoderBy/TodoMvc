@@ -1,41 +1,46 @@
 window.addEventListener('load', function () {
   const input_task_form = document.getElementById("input_task");
-  input_task_form.addEventListener("keypress", function(stroke) { //CR Minor - could be an anonymous function
+  input_task_form.addEventListener("keypress", function(stroke) {
     if (stroke.key == "Enter") {
+      const task_location = document.getElementById("answers");
       const task_num = document.getElementById("answers").childElementCount;
       const input_value = input_task_form.value;
+      input_task_form.value = '';
       addTask(task_num , input_value);
     }
   });
-  input_task_form.addEventListener("click", function(stroke) { //CR Minor - seperate getElementById from actual code logic. save the element as a const
+  input_task_form.addEventListener("click", function(stroke) {
     input_task_form.value ='';
   });
 })
-function addTask(task_num, input_value) { 
-  const newTask = document.createElement('div');
+function addTask(task_num, input_value, task_location) { 
+  const new_task = document.createElement('div');
   const pure_task_content = purify(input_value);
   const pure_task_num = purify(task_num);
-    newTask.innerHTML = `
+  new_task.innerHTML = `
     
   <button type = "button" class = "unchk" id = "task${task_num}_btn" onclick = "moveToDone(${task_num})">Done!</button>
   
-  <textarea style = "width: 50%" id = "val_task${task_num}">${pure_task_content}</textarea> 
+  <textarea class = "task_input" id = "val_task${task_num}">${pure_task_content}</textarea> 
   
   <button type = "button" class = "rmv" onclick = "removeTask(${pure_task_num})">remove</button>
   
-  `; //CR Minor - if you use CSS don't also use the style property
-  //CR Major - don't add HTML directly as a string, this is just asking for XSS to happen
+  `;
 
-  newTask.id = `task_${pure_task_num}`;
-  newTask.classList.add("task");
+  new_task.id = `task_${pure_task_num}`;
+  new_task.classList.add("task");
+  task_location.appendChild(new_task);
+
   document.getElementById("input_task").value = '';
-  document.getElementById("answers").appendChild(newTask);
-  }
-  //CR Major - each function should be responsible to do one thing, this function fetches the data from the input, generates a new Task element while caring about all the other tasks, adds the task to the DOM, and empties the input
 
-function removeTask(num) {
+  }
+  //CR Major - each function should be responsible to do one thing,
+  // this function fetches the data from the input,
+  // generates a new Task element while caring about all the other tasks, adds the task to the DOM, and empties the input
+
+function removeTask(id) {
   //CR Minor - if you are using num as an identifier, might want to call it ID
-    const victim_div = document.getElementById(`task_${num}`);
+    const victim_div = document.getElementById(`task_${id}`);
     victim_div.remove();
   }
   

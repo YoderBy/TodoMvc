@@ -5,6 +5,9 @@
 .headline{
     text-align: center;
   }
+.task_input{
+  width: 50%;
+}
 .input_box{
   display:flex;
   
