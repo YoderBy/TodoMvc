@@ -1,19 +1,17 @@
 window.addEventListener('load', function () {
-
-  document.getElementById("input_task").addEventListener("keypress", function(stroke) { //CR Minor - could be an anonymous function
+  const input_task_form = document.getElementById("input_task");
+  input_task_form.addEventListener("keypress", function(stroke) { //CR Minor - could be an anonymous function
     if (stroke.key == "Enter") {
       const task_num = document.getElementById("answers").childElementCount;
-      const input_value = document.getElementById("input_task").value;
+      const input_value = input_task_form.value;
       addTask(task_num , input_value);
     }
   });
-  document.getElementById("input_task").addEventListener("click", function(stroke) { //CR Minor - seperate getElementById from actual code logic. save the element as a const
-    document.getElementById("input_task").value ='';
+  input_task_form.addEventListener("click", function(stroke) { //CR Minor - seperate getElementById from actual code logic. save the element as a const
+    input_task_form.value ='';
   });
 })
 function addTask(task_num, input_value) { 
-  //CR Major - this function should get the data it needs as parameters, not look for it itself
-  //CR Minor - naming conventions. function names should be in camelCase, not snake_case 
   const newTask = document.createElement('div');
   const pure_task_content = purify(input_value);
   const pure_task_num = purify(task_num);
