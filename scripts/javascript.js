@@ -6,17 +6,19 @@ window.addEventListener('load', function () {
       const task_num = document.getElementById("answers").childElementCount;
       const input_value = input_task_form.value;
       input_task_form.value = '';
-      addTask(task_num , input_value);
+      addTask(task_num , input_value, task_location);
     }
   });
   input_task_form.addEventListener("click", function(stroke) {
     input_task_form.value ='';
   });
 })
-function addTask(task_num, input_value, task_location) { 
+function generateTask(task_num, input_value){
+
   const new_task = document.createElement('div');
   const pure_task_content = purify(input_value);
   const pure_task_num = purify(task_num);
+
   new_task.innerHTML = `
     
   <button type = "button" class = "unchk" id = "task${task_num}_btn" onclick = "moveToDone(${task_num})">Done!</button>
@@ -29,8 +31,13 @@ function addTask(task_num, input_value, task_location) {
 
   new_task.id = `task_${pure_task_num}`;
   new_task.classList.add("task");
-  task_location.appendChild(new_task);
 
+  return new_task;
+}
+function addTask(task_num, input_value, task_location) { 
+
+  const new_task = generateTask(task_num, input_value);
+  task_location.appendChild(new_task);
   document.getElementById("input_task").value = '';
 
   }
