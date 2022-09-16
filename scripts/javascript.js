@@ -2,7 +2,7 @@ window.addEventListener('load', function () {
   const input_task_form = document.getElementById("input_task");
   input_task_form.addEventListener("keypress", function(stroke) {
     if (stroke.key == "Enter") {
-      const task_location = document.getElementById("answers");
+      const task_location = document.getElementById('answers');
       const task_num = document.getElementById("answers").childElementCount;
       const input_value = input_task_form.value;
       input_task_form.value = '';
