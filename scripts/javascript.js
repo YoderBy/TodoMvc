@@ -14,21 +14,18 @@ window.addEventListener('load', function () {
   });
 })
 function generateTask(task_num, input_value){
-
   const new_task = document.createElement('div');
   const pure_task_content = purify(input_value);
   const pure_task_num = purify(task_num);
-
   new_task.innerHTML = `
     
-  <button type = "button" class = "unchk" id = "task${task_num}_btn" onclick = "moveToDone(${task_num})">Done!</button>
+  <button type = "button" class = "unchk" id = "task${task_num}_btn" onclick = "moveTo(${task_num},document.getElementById('done_tasks_tab'))">Done!</button>
   
   <textarea class = "task_input" id = "val_task${task_num}">${pure_task_content}</textarea> 
   
   <button type = "button" class = "rmv" onclick = "removeTask(${pure_task_num})">remove</button>
   
   `;
-
   new_task.id = `task_${pure_task_num}`;
   new_task.classList.add("task");
 
@@ -51,65 +48,54 @@ function removeTask(id) {
     victim_div.remove();
   }
   
-function moveToDone(num) {
-    
-    const victim_div = document.getElementById(`task_${num}`);
-    const re_born = document.createElement('div');
-    
-    re_born.innerHTML  = document.getElementById(`task_${num}`).innerHTML;
-    
-    //preparing the done task
-    document.getElementById("done_tasks_tab").appendChild(re_born); //adding
-    re_born.classList.add("task_done"); //css
-    re_born.setAttribute("id",`task_${num}`);
-    re_born.children[1].classList.add("strike_through");
-    re_born.children[0].setAttribute("onclick", `revive(${num})`); //changign the button action
-    re_born.children[0].innerHTML = "ToDo"
-    victim_div.remove();
+function moveTo(id, location) {
+  const victim_div = document.getElementById(`task_${id}`);
+  const re_born = victim_div.cloneNode(true);//https://stackoverflow.com/questions/19482076/how-to-duplicate-a-div-in-javascript
+  taskModificaiton(id);
+
+  victim_div.remove();
+  location.appendChild(re_born); //adding
   }
-  
-function revive(num) {
+
+function taskModificaiton(id){
+  //this is so ugly
+  const task = document.getElementById(`task_${id}`);
+  const location = task.parentNode;
+  if (location.id == 'done_tasks_tab'){
+    task.children[0].setAttribute("onclick", `moveTo(${id}, document.getElementById('answers'))`);
+    task.children[0].innerHTML = "ToDo";
+  }
+  if (location.id == 'answers'){
+    task.children[0].setAttribute("onclick", `moveTo(${id}, document.getElementById('done_tasks_tab'))`);
+    task.children[0].innerHTML = "Done!";
+  }
+}
+
+//function returnToTasks(num) {
   //CR Minor - this is a fun name but not a very indicative one. this implies the function return a deleted task, not a done task
     //it should mimic moveToDone, but in reverse. It's so similar, I wonder if I should  just add a "location" parameter and merge them
     //CR - this is indeed code duplication
 
-    const victim_div = document.getElementById(`task_${num}`);
-    const re_born = document.createElement('div');
+ //   const victim_div = document.getElementById(`task_${num}`);
+ //   const re_born = document.createElement('div');
     
-    re_born.innerHTML = document.getElementById(`task_${num}`).innerHTML;
+  //  re_born.innerHTML = document.getElementById(`task_${num}`).innerHTML;
     
     //preparing the task for moving to undone
-    document.getElementById("answers").appendChild(re_born); //adding
+   // document.getElementById("answers").appendChild(re_born); //adding
     
-    re_born.classList.add("task"); //css
-    re_born.classList.remove('done_task');
-    re_born.children[1].classList.remove('strike_through');
+   // re_born.classList.add("task"); //css
+   // re_born.classList.remove('done_task');
+   // re_born.children[1].classList.remove('strike_through');
     
-    re_born.setAttribute("id",`task_${num}`) 
-    re_born.children[0].setAttribute("onclick", `moveToDone(${num})`); //changign the button action
-    re_born.children[0].innerHTML = "Done!"
+   // re_born.setAttribute("id",`task_${num}`) 
+   // re_born.children[0].setAttribute("onclick", `moveToDone(${num})`); //changign the button action
+   // re_born.children[0].innerHTML = "Done!"
 
-    victim_div.remove();
-  }
+   // victim_div.remove();
+  //}
 
 function hideDone(){
-  flag = document.getElementById("flag").innerHTML;
-  //CR Minor - will you have no other flags? maybe the ID should be more unique
-  if (flag == 0){
-    //CR Minor - why not just use a boolean?
-    //CR Minor - don't use ==
-    document.getElementById("done_tasks_tab").style.display = "none";
-    document.getElementById("hide/show_btn").innerHTML = "Show";
-    document.getElementById("flag").innerHTML = 1;
-  }
-  if (flag == 1){
-    document.getElementById("done_tasks_tab").style.display = "flex";
-    document.getElementById("hide/show_btn").innerHTML = "Hide";
-    document.getElementById("flag").innerHTML = 0;
-  }
-}
-
-function hideDone2(){
   isVisible = !!document.getElementById("flag").innerHTML;
   document.getElementById("done_tasks_tab").style.display = isVisible ? "flex" : "none";
   document.getElementById("hide/show_btn").innerHTML = isVisible ? "Hide" : "Show";

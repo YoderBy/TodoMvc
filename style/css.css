@@ -2,6 +2,9 @@
   margin-left: 20%;
   margin-right: 20%;
 }
+#done_tasks_tab .task_input {
+  text-decoration: line-through;
+}
 .headline{
     text-align: center;
   }
