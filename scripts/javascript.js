@@ -51,8 +51,16 @@ function removeTask(id) {
 function moveTo(id, location) {
   const victim_div = document.getElementById(`task_${id}`);
   const re_born = victim_div.cloneNode(true);//https://stackoverflow.com/questions/19482076/how-to-duplicate-a-div-in-javascript
-  taskModificaiton(id);
-
+  //taskModificaiton(id);
+  const loc = document.getElementById(`task_${id}`).parentNode;
+  if (loc.id == 'done_tasks_tab'){
+    re_born.children[0].setAttribute("onclick", `moveTo(${id}, document.getElementById('done_tasks_tab'))`);
+    re_born.children[0].innerHTML = "ToDo";
+  }
+  if (loc.id == 'answers'){
+    re_born.children[0].setAttribute("onclick", `moveTo(${id}, document.getElementById('done_tasks_tab'))`);
+    re_born.children[0].innerHTML = "Done!";
+  }
   victim_div.remove();
   location.appendChild(re_born); //adding
   }
