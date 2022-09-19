@@ -32,7 +32,6 @@ function generateTask(task_num, input_value){
   return new_task;
 }
 function addTask(task_num, input_value, task_location) { 
-
   const new_task = generateTask(task_num, input_value);
   task_location.appendChild(new_task);
   document.getElementById("input_task").value = '';
@@ -51,18 +50,9 @@ function removeTask(id) {
 function moveTo(id, location) {
   const victim_div = document.getElementById(`task_${id}`);
   const re_born = victim_div.cloneNode(true);//https://stackoverflow.com/questions/19482076/how-to-duplicate-a-div-in-javascript
-  //taskModificaiton(id);
-  const loc = document.getElementById(`task_${id}`).parentNode;
-  if (loc.id == 'done_tasks_tab'){
-    re_born.children[0].setAttribute("onclick", `moveTo(${id}, document.getElementById('done_tasks_tab'))`);
-    re_born.children[0].innerHTML = "ToDo";
-  }
-  if (loc.id == 'answers'){
-    re_born.children[0].setAttribute("onclick", `moveTo(${id}, document.getElementById('done_tasks_tab'))`);
-    re_born.children[0].innerHTML = "Done!";
-  }
-  victim_div.remove();
   location.appendChild(re_born); //adding
+  victim_div.remove();
+  taskModificaiton(id);
   }
 
 function taskModificaiton(id){
@@ -70,12 +60,12 @@ function taskModificaiton(id){
   const task = document.getElementById(`task_${id}`);
   const location = task.parentNode;
   if (location.id == 'done_tasks_tab'){
-    task.children[0].setAttribute("onclick", `moveTo(${id}, document.getElementById('answers'))`);
-    task.children[0].innerHTML = "ToDo";
+    document.getElementById(`task${id}_btn`).setAttribute("onclick", `moveTo(${id}, document.getElementById('answers'))`);
+    document.getElementById(`task${id}_btn`).innerHTML = "Todo";
   }
   if (location.id == 'answers'){
-    task.children[0].setAttribute("onclick", `moveTo(${id}, document.getElementById('done_tasks_tab'))`);
-    task.children[0].innerHTML = "Done!";
+    document.getElementById(`task${id}_btn`).setAttribute("onclick", `moveTo(${id}, document.getElementById('done_tasks_tab'))`);
+    document.getElementById(`task${id}_btn`).innerHTML = "Done!";
   }
 }
 
