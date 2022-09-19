@@ -71,3 +71,7 @@
   .strike_through{
      text-decoration: line-through;
   }
+.done_tasks_tab {
+display: block;
+  
+}

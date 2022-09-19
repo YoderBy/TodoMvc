@@ -35,7 +35,6 @@ function addTask(input_value, task_location) {
   const new_task = generateTask(task_num, input_value);
   task_location.appendChild(new_task);
   document.getElementById("input_task").value = '';
-W
   }
   //CR Major - each function should be responsible to do one thing,
   // this function fetches the data from the input,
@@ -73,33 +72,10 @@ function taskModificaiton(id){
   }
 }
 
-//function returnToTasks(num) {
-  //CR Minor - this is a fun name but not a very indicative one. this implies the function return a deleted task, not a done task
-    //it should mimic moveToDone, but in reverse. It's so similar, I wonder if I should  just add a "location" parameter and merge them
-    //CR - this is indeed code duplication
-
- //   const victim_div = document.getElementById(`task_${num}`);
- //   const re_born = document.createElement('div');
-    
-  //  re_born.innerHTML = document.getElementById(`task_${num}`).innerHTML;
-    
-    //preparing the task for moving to undone
-   // document.getElementById("answers").appendChild(re_born); //adding
-    
-   // re_born.classList.add("task"); //css
-   // re_born.classList.remove('done_task');
-   // re_born.children[1].classList.remove('strike_through');
-    
-   // re_born.setAttribute("id",`task_${num}`) 
-   // re_born.children[0].setAttribute("onclick", `moveToDone(${num})`); //changign the button action
-   // re_born.children[0].innerHTML = "Done!"
-
-   // victim_div.remove();
-  //}
-
 function hideDone(){
-  isVisible = !!document.getElementById("flag").innerHTML;
-  document.getElementById("done_tasks_tab").style.display = isVisible ? "flex" : "none";
+
+  isVisible = !!parseInt(document.getElementById("flag").innerHTML);
+  document.getElementById("done_tasks_tab").style.display = isVisible ? "block" : "none";
   document.getElementById("hide/show_btn").innerHTML = isVisible ? "Hide" : "Show";
   document.getElementById("flag").innerHTML = isVisible ? 0 : 1;
 }
