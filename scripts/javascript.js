@@ -3,10 +3,9 @@ window.addEventListener('load', function () {
   input_task_form.addEventListener("keypress", function(stroke) {
     if (stroke.key == "Enter") {
       const task_location = document.getElementById('answers');
-      const task_num = document.getElementById("answers").childElementCount;
       const input_value = input_task_form.value;
       input_task_form.value = '';
-      addTask(task_num , input_value, task_location);
+      addTask(input_value, task_location);
     }
   });
   input_task_form.addEventListener("click", function(stroke) {
@@ -31,16 +30,21 @@ function generateTask(task_num, input_value){
 
   return new_task;
 }
-function addTask(task_num, input_value, task_location) { 
+function addTask(input_value, task_location) { 
+  const task_num = generateTaskNum();
   const new_task = generateTask(task_num, input_value);
   task_location.appendChild(new_task);
   document.getElementById("input_task").value = '';
-
+W
   }
   //CR Major - each function should be responsible to do one thing,
   // this function fetches the data from the input,
   // generates a new Task element while caring about all the other tasks, adds the task to the DOM, and empties the input
-
+function generateTaskNum(){
+  const task_num = purify(document.getElementById("task_counter").innerHTML);
+  document.getElementById("task_counter").innerHTML ++;
+  return task_num;
+}
 function removeTask(id) {
   //CR Minor - if you are using num as an identifier, might want to call it ID
     const victim_div = document.getElementById(`task_${id}`);

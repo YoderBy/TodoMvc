@@ -2,6 +2,7 @@
     <title>Title of the document</title>
     <link rel="stylesheet" type="text/css" href="style/css.css">
     <script src="scripts/javascript.js"></script>
+    <div style = "display: none;" id = "task_counter">0</div>
   </head>
 
   <body>
@@ -16,18 +17,19 @@
         const input_value = document.getElementById("input_task").value;
       </script>
       <textarea id="input_task" class="input_task" placeholder="What do YOU want to do?..." aa="dsa"></textarea>
-      <button type="button" onclick= "addTask(document.getElementById('answers').childElementCount, document.getElementById('input_task').value,document.getElementById('answers'))" style = "margin: 5%;"> Add </button>
+      <button type="button" onclick= "addTask(document.getElementById('input_task').value,document.getElementById('answers'))" style = "margin: 5%;"> Add </button>
     </div>
   <div id="answers">
     <h2>Remaining Tasks</h2>
   </div>
-<div style="border-style: solid;">
-  <div class="task" style="justify-content: space-between;">
-      <h2>Done Tasks</h2>
-      <button id="hide/show_btn" class=".hide/show_btn" type="button" onclick="hideDone()"> Hide </button>
-  </div>
+
 
     <div id="done">
+      <div style="border-style: solid;">
+        <div class="task" style="justify-content: space-between;">
+            <h2>Done Tasks</h2>
+            <button id="hide/show_btn" class=".hide/show_btn" type="button" onclick="hideDone()"> Hide </button>
+      </div>
     <div id="done_tasks_tab" class="done_tasks_tab">
         <label id="flag" style="display: none;">0</label>
 
