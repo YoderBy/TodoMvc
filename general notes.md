@@ -9,18 +9,18 @@
 
 # UI/UX
 - having draggble boxes for the title is a bit weird 
-- hovering on a task makes the whole text box jump to the left
+- hovering on a task makes the whole text box jump to the left Done
 - Minor UI improvements
   - change the font to something better, a sans-serif font maybe
-  - it's weird that sometimes contextual buttons are to the right and sometimes to the left, be more consistent
-  - titles could be centered as well
+  - it's weird that sometimes contextual buttons are to the right and sometimes to the left, be more consistent done
+  - titles could be centered as well done
 - despite this, the site looks much better than what I expected from you, good job!
 
 # Requirements
-- good thinking about UX features like hiding what's done
-- Tasks should have a title and an optional description
-- Tasks should show when they were added and if they are done, when the became done
-- Existing tasks should not be editable without explicitly asking for them to be edited. add an edit button
+- good thinking about UX features like hiding what's done 
+- Tasks should have a title and an optional description next
+- Tasks should show when they were added and if they are done, when the became done next 
+- Existing tasks should not be editable without explicitly asking for them to be edited. add an edit button next
 
 # bugs
 - clicking the new task textbox while typing deletes what you typed
