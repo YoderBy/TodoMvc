@@ -2,6 +2,7 @@
     <title>Title of the document</title>
     <link rel="stylesheet" type="text/css" href="style/css.css">
     <script src="scripts/javascript.js"></script>
+    <script src="scripts/tasksFunctions.js"></script>
     <div style = "display: none;" id = "task_counter">0</div>
     <!-- probably there is a better solution, I will search for it later
     . the input for here will be cleaned to avoid xss attacks. yes, I know this comment is written in
@@ -15,11 +16,7 @@
     </h1>
 
     <div class="input_box">
-      <script>
-        const task_num = document.getElementById("answers").childElementCount;
-        const input_value = document.getElementById("input_task").value;
-      </script>
-      <textarea id="input_task" class="input_task" placeholder="What do YOU want to do?..." aa="dsa"></textarea>
+      <textarea id="input_task" class="input_task" placeholder="What do YOU want to do?..."></textarea>
       <button type="button" onclick= "addTask(document.getElementById('input_task').value,document.getElementById('answers'))" style = "margin: 5%;"> Add </button>
     </div>
   <div id="answers">
