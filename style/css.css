@@ -33,6 +33,7 @@
     align-items: center;
 }
 .answers_tab{
+  text-align: center;
   border-style: solid;
 }
   #answers{
@@ -75,5 +76,12 @@
 .done_tasks_tab {
   padding-left: 6%;
   display: block;
-  
+}
+#done{
+  border-style: solid;
+
+}
+.done_head{
+
+  text-align: center;
 }
