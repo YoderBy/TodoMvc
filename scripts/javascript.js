@@ -55,6 +55,6 @@ function inputButtonAddTask(){
 }
 function getTime(){1
   var today = new Date();
-  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  var time = today.getHours() + ":0" + today.getMinutes() + ":" + today.getSeconds();
   return time;
 }
