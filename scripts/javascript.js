@@ -1,15 +1,18 @@
 window.addEventListener('load', function () {
-  inputs = getInputValues();
-  const title_input_value = inputs[0], body_input_value = inputs[1];
   const input_task_form = document.getElementById("input_box");
   input_task_form.addEventListener("keypress", function(stroke) {
+    inputs = getInputValues();
+    const title_input_value = inputs[0], body_input_value = inputs[1];  
     if (stroke.key == "Enter") {
       addTask(title_input_value,body_input_value,document.getElementById('answers'));
       resetInputBox();
     }
   });
-  input_task_form.addEventListener("click", function(stroke) {
-    title_input_task_form.value ='';
+  document.getElementById("title_input_task").addEventListener("click", function(stroke) {
+    document.getElementById("title_input_task").value ='';
+  });
+  document.getElementById("body_input_task").addEventListener("click", function(stroke) {
+    document.getElementById("body_input_task").value ='';
   });
 })
 function hideDone(){
@@ -37,8 +40,11 @@ function getInputValues(){
 }
 
 function resetInputBox(){
-  title_input_task_form.value = 'What do YOU want to do?...';
-  body_input_task_form.value = '';
+  const title_input_task_form = document.getElementById("title_input_task");
+  const body_input_task_form = document.getElementById("body_input_task");
+
+  title_input_task_form.value = 'Task Title ';
+  body_input_task_form.value = 'Task body';
 }
 
 function inputButtonAddTask(){
@@ -46,4 +52,9 @@ function inputButtonAddTask(){
   const title_input_value = inputs[0], body_input_value = inputs[1];
   addTask(title_input_value,body_input_value,document.getElementById('answers'));
   resetInputBox();
+}
+function getTime(){1
+  var today = new Date();
+  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  return time;
 }

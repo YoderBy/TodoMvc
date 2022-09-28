@@ -15,8 +15,10 @@
       ToDo MVC
     </h1>
     <div class="input_box" id = "input_box">
-      <input id="title_input_task" class="title_input_task" value="What do YOU want to do?..."/>
-      <input id="body_input_task" class="body_input_task" value="hi"/>
+      <div class = "input_text_box">
+      <input id="title_input_task" class="title_input_task" value="Task Title"/>
+      <input id="body_input_task" class="body_input_task" value="Task Value"/>
+      </div>
       <button type="button" onclick= "inputButtonAddTask()" style = "margin: 5%;"> Add </button>
     </div>
   <div class = "answers_tab">
@@ -28,11 +30,12 @@
   <div id="done">
     <div class = "done_head">
     <h2>Done Tasks</h2>
-    <button id="hide/show_btn" class=".hide/show_btn" type="button" onclick="hideDone()"> Hide </button>
-    </div>
+
     <div id="done_tasks_tab" class="done_tasks_tab">
      <label id="flag" style="display: none;">0</label> <!-- CR Minor- it would be so much easier to have this initial example of TODO items if you had a way to convert the raw data to the full task element  -->  
     </div>
+    <button id="hide/show_btn" class=".hide/show_btn" type="button" onclick="hideDone()"> Hide </button>
+  </div>
   </div>
 </div>  
 

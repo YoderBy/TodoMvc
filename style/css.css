@@ -20,30 +20,29 @@ border-style: solid;
 text-align:center;
 border-style: solid;
 }
+.input_text_box{
+  width: 85%;
+  display: inline-grid;
+}
 .title_input_task{
 overflow: hidden;
 font-weight: bold;
-margin: 5%;
-width: 50%;
-border:none;
 }
 
 .body_input_task{
 overflow: hidden;
-font-weight: bold;
-margin: 5%;
-width: 50%;
-border:1px;
 }
 .task{
-margin-bottom: 2%;
+display: flex;
+margin-bottom: 3%;
+}
+.visible_task{
 display: flex;
 flex-direction: row;
 flex-wrap: wrap;
 justify-content: flex-start;
 align-items: stretch;
 align-content: stretch;
-
 }
 .answers_tab{
 text-align: center;
@@ -53,16 +52,12 @@ border-style: solid;
 padding-left: 6%;
 }
 .edt{
-margin-left: 11px;
 background-color: rgb(199, 185, 243);
-left: 1%;
 position: relative;
 }
 .rmv{
-margin-left: 11px;
 color: white;
 background-color: red;
-left: 1%;
 display: none;
 position: relative;
 } 
@@ -72,6 +67,9 @@ display: flex;
 }
 .hide/show_btn{
 margin: 1% 0 1% 0;
+}
+.task_time{
+  margin: 8px;
 }
 .unchk{
 right: 1%;
