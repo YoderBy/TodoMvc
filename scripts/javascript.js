@@ -1,16 +1,15 @@
 window.addEventListener('load', function () {
-  const input_task_form = document.getElementById("input_task");
+  inputs = getInputValues();
+  const title_input_value = inputs[0], body_input_value = inputs[1];
+  const input_task_form = document.getElementById("input_box");
   input_task_form.addEventListener("keypress", function(stroke) {
     if (stroke.key == "Enter") {
-      const task_location = document.getElementById('answers');
-      const input_value = input_task_form.value;
-      addTask(document.getElementById('input_task').value,document.getElementById('answers'))
-      input_task_form.value = '';
-      //addTask(input_value, task_location);
+      addTask(title_input_value,body_input_value,document.getElementById('answers'));
+      resetInputBox();
     }
   });
   input_task_form.addEventListener("click", function(stroke) {
-    input_task_form.value ='';
+    title_input_task_form.value ='';
   });
 })
 function hideDone(){
@@ -25,4 +24,26 @@ function purify(str){//from the web https://portswigger.net/web-security/cross-s
   return String(str).replace(/[^\w. ]/gi, function(c){
       return '&#'+c.charCodeAt(0)+';';
   });
+}
+
+function getInputValues(){
+  const title_input_task_form = document.getElementById("title_input_task");
+  const body_input_task_form = document.getElementById("body_input_task");
+
+  const title_input_value = title_input_task_form.value;
+  const body_input_value = body_input_task_form.value;
+
+  return [title_input_value, body_input_value];
+}
+
+function resetInputBox(){
+  title_input_task_form.value = 'What do YOU want to do?...';
+  body_input_task_form.value = '';
+}
+
+function inputButtonAddTask(){
+  inputs = getInputValues();
+  const title_input_value = inputs[0], body_input_value = inputs[1];
+  addTask(title_input_value,body_input_value,document.getElementById('answers'));
+  resetInputBox();
 }

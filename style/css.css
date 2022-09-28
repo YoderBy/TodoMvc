@@ -1,78 +1,98 @@
 .body{
-  margin-left: 20%;
-  margin-right: 20%;
+margin-left: 20%;
+margin-right: 20%;
 }
 #done_tasks_tab .task_input {
-  text-decoration: line-through;
+text-decoration: line-through;
 }
 .headline{
-    text-align: center;
-  }
+text-align: center;
+}
 .task_input{
-  width: 50%;
+display: inline-grid;
+align-content: space-between;
+width: 50%;
 }
 .input_box{
-  display:flex;
-  
-  border-style: solid;
-  text-align:center;
-  border-style: solid;
+display:flex;
+
+border-style: solid;
+text-align:center;
+border-style: solid;
 }
-  .input_task{
-    overflow: hidden;
-    font-weight: bold;
-    margin: 5%;
-    width: 50%;
-  }
-  .task{
-    margin-bottom: 2%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: center;
+.title_input_task{
+overflow: hidden;
+font-weight: bold;
+margin: 5%;
+width: 50%;
+border:none;
+}
+
+.body_input_task{
+overflow: hidden;
+font-weight: bold;
+margin: 5%;
+width: 50%;
+border:1px;
+}
+.task{
+margin-bottom: 2%;
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: flex-start;
+align-items: stretch;
+align-content: stretch;
+
 }
 .answers_tab{
-  text-align: center;
-  border-style: solid;
+text-align: center;
+border-style: solid;
 }
-  #answers{
-    padding-left: 6%;
-  }
-  .rmv{
-      color: white;
-      background-color: red;
-      left: 1%;
-      display: none;
-      position: relative;
-  } 
-  /* CR - what is rmv? don't save space in your names */
-  .task:hover .rmv{
-    display: flex;
-  }
+#answers{
+padding-left: 6%;
+}
+.edt{
+margin-left: 11px;
+background-color: rgb(199, 185, 243);
+left: 1%;
+position: relative;
+}
+.rmv{
+margin-left: 11px;
+color: white;
+background-color: red;
+left: 1%;
+display: none;
+position: relative;
+} 
+/* CR - what is rmv? don't save space in your names */
+.task:hover .rmv{
+display: flex;
+}
 .hide/show_btn{
-  margin: 1% 0 1% 0;
-  }
-  .unchk{
-      right: 1%;
-      position: relative;
-  }
-  .task_done{
-    width: 100%;
-    margin-bottom: 2%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .task_done:hover .rmv{
-    display: flex;
-  }
-  .strike_through{
-    text-decoration: line-through;
-  }
+margin: 1% 0 1% 0;
+}
+.unchk{
+right: 1%;
+position: relative;
+}
+.task_done{
+  width: 100%;
+  margin-bottom: 2%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.task_done:hover .rmv{
+display: flex;
+}
+.strike_through{
+text-decoration: line-through;
+}
 .done_tasks_tab {
   padding-left: 6%;
   display: block;
@@ -82,6 +102,13 @@
 
 }
 .done_head{
-
   text-align: center;
+}
+.task_value{
+  border:none;
+}
+
+.task_title{
+  font-weight: bold;
+  border:none;
 }

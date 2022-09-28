@@ -1,13 +1,16 @@
-function generateTask(task_num, input_value){
+function generateTask(task_num, title_input_value, body_input_value){
     const new_task = document.createElement('div');
-    const pure_task_content = purify(input_value);
+    const pure_title_task_content = purify(title_input_value);
+    const pure_body_task_content = purify(body_input_value);
     const pure_task_num = purify(task_num);
     new_task.innerHTML = `
-      
-    <button type = "button" class = "unchk" id = "task${task_num}_btn" onclick = "moveTo(${task_num},document.getElementById('done_tasks_tab'))">Done!</button>
-    
-    <textarea class = "task_input" id = "val_task${task_num}">${pure_task_content}</textarea> 
-    
+    <div id = "${pure_task_num}_is_editable" style = "display:none">1</div>
+    <button type = "button" class = "unchk" id = "task${pure_task_num}_btn" onclick = "moveTo(${pure_task_num},document.getElementById('done_tasks_tab'))">Done!</button>
+    <div class = "task_input">
+    <input class = "task_title" disabled="disabled" id = "title_val_task${pure_task_num}" value = '${pure_title_task_content}'/> 
+    <input class = "task_value" disabled="disabled" id = "text_val_task${pure_task_num}" value = '${pure_body_task_content}'/> 
+    </div>
+    <button type = "button" class = "edt" id = "edit_btn${pure_task_num}" onclick = "editTask(${pure_task_num})">Edit</button>
     <button type = "button" class = "rmv" onclick = "removeTask(${pure_task_num})">remove</button>
     
     `;
@@ -17,11 +20,10 @@ function generateTask(task_num, input_value){
     return new_task;
   }
   
-  function addTask(input_value, task_location) { 
+  function addTask(title_input_value, body_input_value, task_location) { 
     const task_num = generateTaskNum();
-    const new_task = generateTask(task_num, input_value);
+    const new_task = generateTask(task_num, title_input_value, body_input_value);
     task_location.appendChild(new_task);
-    document.getElementById("input_task").value = '';
     }
     //CR Major - each function should be responsible to do one thing,
     // this function fetches the data from the input,
@@ -59,4 +61,11 @@ function generateTask(task_num, input_value){
         document.getElementById(`task${id}_btn`).innerHTML = "Done!";
       }
     }
-    
+function editTask(id){
+  isEditAble = !!parseInt(document.getElementById(`${id}_is_editable`).innerHTML);// 1 return True, 0 return False
+  document.getElementById(`title_val_task${id}`).disabled = isEditAble ? 0 : 1;
+  document.getElementById(`text_val_task${id}`).disabled = isEditAble ? 0 : 1;
+  document.getElementById(`edit_btn${id}`).innerHTML = isEditAble ? "Save" : "Edit";
+  document.getElementById(`edit_btn${id}`).style.backgroundColor= isEditAble ? "rgb(185, 243, 198)" : "rgb(199, 185, 243)";
+  document.getElementById(`${id}_is_editable`).innerHTML = isEditAble ? 0 : 1;
+}

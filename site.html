@@ -14,10 +14,10 @@
     <h1 class="headline">
       ToDo MVC
     </h1>
-
-    <div class="input_box">
-      <textarea id="input_task" class="input_task" placeholder="What do YOU want to do?..."></textarea>
-      <button type="button" onclick= "addTask(document.getElementById('input_task').value,document.getElementById('answers'))" style = "margin: 5%;"> Add </button>
+    <div class="input_box" id = "input_box">
+      <input id="title_input_task" class="title_input_task" value="What do YOU want to do?..."/>
+      <input id="body_input_task" class="body_input_task" value="hi"/>
+      <button type="button" onclick= "inputButtonAddTask()" style = "margin: 5%;"> Add </button>
     </div>
   <div class = "answers_tab">
     <h2>Remaining Tasks</h2>
