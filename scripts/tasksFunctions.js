@@ -6,7 +6,7 @@ function generateTask(task_num, title_input_value, body_input_value){
     const pure_task_num = purify(task_num);
     new_task.innerHTML = `<div class = "visible_task">
     <div id = "${pure_task_num}_is_editable" style = "display:none">1</div>
-    <button type = "button" class = "unchk" id = "task${pure_task_num}_btn" onclick = "moveTo(${pure_task_num},document.getElementById('done_tasks_tab'))">Done!</button>
+    <button type = "button" class = "unchk" id = "task${pure_task_num}_btn" onclick = "moveTo(${pure_task_num},document.getElementById('done_tasks_tab'))"></button>
     <div class = "task_input">
     <input class = "task_title" disabled="disabled" id = "title_val_task${pure_task_num}" value = '${pure_title_task_content}'/> 
     <input class = "task_value" disabled="disabled" id = "text_val_task${pure_task_num}" value = '${pure_body_task_content}'/> 
@@ -57,11 +57,11 @@ function generateTask(task_num, title_input_value, body_input_value){
       const location = task.parentNode;
       if (location.id == 'done_tasks_tab'){
         document.getElementById(`task${id}_btn`).setAttribute("onclick", `moveTo(${id}, document.getElementById('answers'))`);
-        document.getElementById(`task${id}_btn`).innerHTML = "Todo";
+        document.getElementById(`task${id}_btn`).innerHTML = "";
       }
       if (location.id == 'answers'){
         document.getElementById(`task${id}_btn`).setAttribute("onclick", `moveTo(${id}, document.getElementById('done_tasks_tab'))`);
-        document.getElementById(`task${id}_btn`).innerHTML = "Done!";
+        document.getElementById(`task${id}_btn`).innerHTML = "";
       }
       document.getElementById(`task_time${id}`).innerHTML = `${getTime()}`;
     }

@@ -5,16 +5,28 @@ window.addEventListener('load', function () {
     const title_input_value = inputs[0], body_input_value = inputs[1];  
     if (stroke.key == "Enter") {
       addTask(title_input_value,body_input_value,document.getElementById('answers'));
-      resetInputBox();
+      resetAllInputBoxs();
     }
   });
-  document.getElementById("title_input_task").addEventListener("click", function(stroke) {
-    document.getElementById("title_input_task").value ='';
-  });
-  document.getElementById("body_input_task").addEventListener("click", function(stroke) {
-    document.getElementById("body_input_task").value ='';
-  });
+WaitForInput("body_input_task");
+WaitForInput("title_input_task");
 })
+
+function WaitForInput(location){
+  document.getElementById(location).addEventListener("click", function(stroke) {
+    MakeInputReady(location);
+  });
+}
+
+function MakeInputReady(location){
+  document.getElementById(location).value ='';
+  document.getElementById(location).style.fontStyle = "normal";
+  document.getElementById(location).style.color = "black";
+}
+function ReturnInputToNormal(location){
+  document.getElementById(location).style.fontStyle = "italic";
+  document.getElementById(location).style.color = "lightgrey";
+}
 function hideDone(){
   isVisible = !!parseInt(document.getElementById("flag").innerHTML);
   document.getElementById("done_tasks_tab").style.display = isVisible ? "block" : "none";
@@ -39,12 +51,16 @@ function getInputValues(){
   return [title_input_value, body_input_value];
 }
 
-function resetInputBox(){
+function resetAllInputBoxs(){
   const title_input_task_form = document.getElementById("title_input_task");
   const body_input_task_form = document.getElementById("body_input_task");
 
   title_input_task_form.value = 'Task Title ';
   body_input_task_form.value = 'Task body';
+
+  ReturnInputToNormal("title_input_task");
+  ReturnInputToNormal("body_input_task");
+
 }
 
 function inputButtonAddTask(){
