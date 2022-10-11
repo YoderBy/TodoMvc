@@ -1,3 +1,9 @@
+import {MDCFoo, MDCFooFoundation} from '@material/foo';
+
+const mdcFoo = require('@material/foo');
+const MDCFoo = mdcFoo.MDCFoo;
+const MDCFooFoundation = mdcFoo.MDCFooFoundation;
+
 
 window.addEventListener('load', function () {
   const input_task_form = document.getElementById("input_box");
