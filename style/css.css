@@ -1,36 +1,45 @@
-body{
+body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: aliceblue;
 
 }
+
+/* Upper Part Of The Site
+*/
 #done_tasks_tab .task_input {
   text-decoration: line-through;
 }
-.headline{
+
+.headline {
   text-align: center;
 }
-.task_input{
+
+.task_input {
   display: inline-grid;
   align-content: space-between;
   width: 50%;
 }
-.input_box{
-  border-radius: 5px; /* 5px rounded corners */
+
+.input_box {
+  border-radius: 5px;
+  /* 5px rounded corners */
   margin-bottom: 5%;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  display:flex;
+  display: flex;
   background-color: white;
-  text-align:center;
+  text-align: center;
 }
-.input_text_box{
+
+.input_text_box {
   border-style: none;
   width: 85%;
   display: inline-grid;
 }
-.title_input_task{
-  margin-left:10%;
-  color:lightgrey;
+
+.title_input_task {
+  margin-left: 10%;
+  color: lightgrey;
   font-size: 20px;
   border-style: none;
   overflow: hidden;
@@ -38,63 +47,54 @@ body{
   font-style: italic;
 }
 
-.body_input_task{
-  margin-left:10%;
-  color:lightgrey;
+.body_input_task {
+  margin-left: 10%;
+  color: lightgrey;
   font-size: 20px;
   border-style: none;
   overflow: hidden;
   font-weight: bold;
   font-style: italic;
 }
-.task{
-  display: flex;
+
+/* Middle Part Of The Site
+*/
+.task {
   margin-bottom: 3%;
 }
-.visible_task{
-display: flex;
-flex-direction: row;
-flex-wrap: wrap;
-justify-content: flex-start;
-align-items: stretch;
-align-content: stretch;
+
+.visible_task {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
 }
-.answers_tab{
-padding-top: 1%;
-padding-bottom: 10%;
-margin-bottom: 5%;
-box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-transition: 0.3s;
-background-color: white;
-text-align: center;
-}
-#answers{
-padding-left: 6%;
-}
-.edt{
-background-color: rgb(199, 185, 243);
-position: relative;
-}
-.rmv{
-content: "\00d7";
-color: white;
-background-color: red;
-display: none;
-position: relative;
-} 
-/* CR - what is rmv? don't save space in your names */
-.task:hover .rmv{
-display: flex;
-}
-.hide/show_btn{
-margin: 1% 0 1% 0;
-}
-.task_time{
-margin: 8px;
-}
-.unchk{
-  border-color: lightgrey;
+
+.answers_tab {
+  padding-top: 1%;
+  padding-bottom: 10%;
+  margin-bottom: 5%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
   background-color: white;
+  text-align: center;
+}
+
+#answers {
+  padding-left: 6%;
+}
+
+.edt {
+  margin: 0 1% 0 1%;
+  background-color: rgb(199, 185, 243);
+  position: relative;
+}
+
+.unchk {
+  border-color: lightgrey;
+  background-color: lightsteelblue;
   height: 25px;
   width: 25px;
   border-radius: 50%;
@@ -102,41 +102,75 @@ margin: 8px;
   right: 1%;
   position: relative;
 }
-.task_done{
-width: 100%;
-margin-bottom: 2%;
-display: flex;
-flex-direction: row;
-flex-wrap: wrap;
-justify-content: center;
-align-items: center;
+
+.rmv {
+  margin: 0 1% 0 1%;
+  content: "\00d7";
+  color: white;
+  background-color: red;
+  display: none;
+  position: relative;
 }
 
-.task_done:hover .rmv{
-display: flex;
+.task:hover .rmv {
+  display: flex;
 }
-.strike_through{
-text-decoration: line-through;
+.task_value {
+  background-color: white;
+  border: none;
 }
+.task_title {
+  background-color: white;
+  font-weight: bold;
+  border: none;
+}
+.time_box{
+  margin: 0 1% 0 1%;
+  font-style: oblique;
+  font-size: smaller;
+  display: flex;
+  flex-direction: column;
+  color: slategrey;
+}
+
+
+/* Lower Part Of The Site
+*/
+#done {
+  padding-top: 1%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  background-color: white;
+}
+
+.done_head {
+  text-align: center;
+}
+
+.hide/show_btn {
+  margin: 1% 0 1% 0;
+}
+
+.task_done {
+  width: 100%;
+  margin-bottom: 2%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.task_done:hover .rmv {
+  display: flex;
+}
+
+.strike_through {
+  text-decoration: line-through;
+}
+
 .done_tasks_tab {
-padding-left: 6%;
-display: block;
-}
-#done{
-padding-top: 1%;
-padding-bottom: 10%;
-box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-transition: 0.3s;
-background-color: white;
-}
-.done_head{
-text-align: center;
-}
-.task_value{
-border:none;
-}
-
-.task_title{
-font-weight: bold;
-border:none;
+  padding-bottom: 10%;
+  padding-left: 6%;
+  display: block;
 }
