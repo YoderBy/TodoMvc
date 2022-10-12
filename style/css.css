@@ -104,17 +104,26 @@ body {
   position: relative;
 }
 
-.rmv {
-  margin: 0 1% 0 1%;
-  content: "\00d7";
-  color: white !important;
-  background-color: red;
+.rmv { 
   display: none;
-  position: relative;
+  top: 0;
+  right: 10px;
+  bottom: 0;
+  width: 40px;
+  height: 40px;
+  margin: 0 1% 0 1%;
+  font-size: 30px;
+  color: rgb(235, 143, 143);
+  margin-bottom: 11px;
+  transition: color 0.2s ease-out;
+  background-color: white;
+  border: none;
 }
-
+.rmv:after {
+  content: '×';
+}
 .visible_task:hover .rmv {
-  display: flow-root;
+  display: contents;
 }
 .task_value {
   background-color: white;

@@ -22,7 +22,7 @@ function generateTask(task_num, title_input_value, body_input_value) {
         <label class = "task_time" id = "task_time${pure_task_num}">${cur_time}
         </label>
       </div>
-      <button type = "button" class = "rmv mdc-button--outlined" onclick = "removeTask(${pure_task_num})">remove</button>
+      <button type = "button" class = "rmv" onclick = "removeTask(${pure_task_num})"></button>
     </div>
     `;
   new_task.id = `task_${pure_task_num}`;
