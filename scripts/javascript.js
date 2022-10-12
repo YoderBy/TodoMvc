@@ -1,15 +1,11 @@
-import {MDCFoo, MDCFooFoundation} from '@material/foo';
-
-const mdcFoo = require('@material/foo');
-const MDCFoo = mdcFoo.MDCFoo;
-const MDCFooFoundation = mdcFoo.MDCFooFoundation;
-
 
 window.addEventListener('load', function () {
   const input_task_form = document.getElementById("input_box");
+
   input_task_form.addEventListener("keypress", function (stroke) {
     inputs = getInputValues();
     const title_input_value = inputs[0], body_input_value = inputs[1];
+
     if (stroke.key == "Enter") {
       addTask(title_input_value, body_input_value, document.getElementById('answers'));
       resetAllInputBoxs();
@@ -30,7 +26,7 @@ function MakeInputReady(location) {
   document.getElementById(location).style.fontStyle = "normal";
   document.getElementById(location).style.color = "black";
 }
-function ReturnInputToNormal(location) {
+function ReturnInputToStyleNormal(location) {
   document.getElementById(location).style.fontStyle = "italic";
   document.getElementById(location).style.color = "lightgrey";
 }
@@ -62,11 +58,11 @@ function resetAllInputBoxs() {
   const title_input_task_form = document.getElementById("title_input_task");
   const body_input_task_form = document.getElementById("body_input_task");
 
-  title_input_task_form.value = 'Task Title ';
-  body_input_task_form.value = 'Task body';
+  title_input_task_form.value = 'Title ';
+  body_input_task_form.value = 'Description';
 
-  ReturnInputToNormal("title_input_task");
-  ReturnInputToNormal("body_input_task");
+  ReturnInputToStyleNormal("title_input_task");
+  ReturnInputToStyleNormal("body_input_task");
 
 }
 
@@ -74,16 +70,15 @@ function inputButtonAddTask() {
   inputs = getInputValues();
   const title_input_value = inputs[0], body_input_value = inputs[1];
   addTask(title_input_value, body_input_value, document.getElementById('answers'));
-  resetInputBox();
+  resetAllInputBoxs();
 }
 function getTime() {
-  1
   var today = new Date();
   if (today.getMinutes() < 10) {
-    var time = today.getHours() + ":0" + today.getMinutes() + ":" + today.getSeconds();
+    var time = today.getHours() + ":0" + today.getMinutes();
   }
   else {
-    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    var time = today.getHours() + ":" + today.getMinutes();
   }
   return time;
 }

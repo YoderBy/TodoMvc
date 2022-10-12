@@ -8,13 +8,13 @@ function generateTask(task_num, title_input_value, body_input_value) {
     <div class = "visible_task">
       <div id = "${pure_task_num}_is_editable" style = "display:none">1
       </div>
-      <button type = "button" class = "unchk" id = "task${pure_task_num}_btn" onclick = "moveTo(${pure_task_num},document.getElementById('done_tasks_tab'))">
+      <button type = "button" class = "unchk mdc-button--outlined" id = "task${pure_task_num}_btn" onclick = "moveTo(${pure_task_num},document.getElementById('done_tasks_tab'))">
       </button>
       <div class = "task_input">
         <input class = "task_title" disabled="disabled" id = "title_val_task${pure_task_num}" value = '${pure_title_task_content}'/> 
         <input class = "task_value" disabled="disabled" id = "text_val_task${pure_task_num}" value = '${pure_body_task_content}'/> 
       </div>
-      <button type = "button" class = "edt" id = "edit_btn${pure_task_num}" onclick = "editTask(${pure_task_num})">Edit
+      <button type = "button" class = "edt mdc-button--outlined" id = "edit_btn${pure_task_num}" onclick = "editTask(${pure_task_num})">Edit
       </button>
       <div class = "time_box">
         <label class = "task_time_description" id = "task_time_description${pure_task_num}">added at:
@@ -22,7 +22,7 @@ function generateTask(task_num, title_input_value, body_input_value) {
         <label class = "task_time" id = "task_time${pure_task_num}">${cur_time}
         </label>
       </div>
-      <button type = "button" class = "rmv" onclick = "removeTask(${pure_task_num})">remove</button>
+      <button type = "button" class = "rmv mdc-button--outlined" onclick = "removeTask(${pure_task_num})">remove</button>
     </div>
     `;
   new_task.id = `task_${pure_task_num}`;

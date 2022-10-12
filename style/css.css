@@ -1,3 +1,4 @@
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: aliceblue;
@@ -106,14 +107,14 @@ body {
 .rmv {
   margin: 0 1% 0 1%;
   content: "\00d7";
-  color: white;
+  color: white !important;
   background-color: red;
   display: none;
   position: relative;
 }
 
-.task:hover .rmv {
-  display: flex;
+.visible_task:hover .rmv {
+  display: flow-root;
 }
 .task_value {
   background-color: white;
@@ -125,6 +126,7 @@ body {
   border: none;
 }
 .time_box{
+  align-items: flex-start;
   margin: 0 1% 0 1%;
   font-style: oblique;
   font-size: smaller;
