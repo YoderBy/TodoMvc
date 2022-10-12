@@ -5,7 +5,7 @@ function generateTask(task_num, title_input_value, body_input_value) {
   const pure_body_task_content = purify(body_input_value);
   const pure_task_num = purify(task_num);
   new_task.innerHTML = `
-    <div class = "visible_task">
+    <div class = "visible_task" ondblclick="edit_btn${pure_task_num}">
       <div id = "${pure_task_num}_is_editable" style = "display:none">1
       </div>
       <button type = "button" class = "unchk mdc-button--outlined" id = "task${pure_task_num}_btn" onclick = "moveTo(${pure_task_num},document.getElementById('done_tasks_tab'))">

@@ -1,0 +1,24 @@
+{
+  "name": "TodoMvc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YoderBy/TodoMvc.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YoderBy/TodoMvc/issues"
+  },
+  "homepage": "https://github.com/YoderBy/TodoMvc#readme",
+  "dependencies": {
+    "@material/button": "^14.0.0",
+    "material-components-web": "^14.0.0"
+  }
+}

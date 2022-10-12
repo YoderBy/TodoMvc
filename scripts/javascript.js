@@ -1,4 +1,8 @@
 
+import {MDCRipple} from 'node_modules/@material/ripple';
+
+const buttonRipple = new MDCRipple(document.getElementById('input_add_button'));
+
 window.addEventListener('load', function () {
   const input_task_form = document.getElementById("input_box");
 
