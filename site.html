@@ -17,10 +17,12 @@
   <!-- probably there is a better solution, I will search for it later
     . the input for here will be cleaned to avoid xss attacks. yes, I know this comment is written in
     the client side-->
+    <!-- CR Major - there is a better solution. you should have a file that saves your app's state and contains data such as this -->
 </head>
 
 <body>
   <div style="margin:0 20%">
+    <!-- CR minor - style should only be in CSS -->
     <h1 class="headline">
       ToDo MVC
     </h1>
@@ -28,6 +30,7 @@
       <div class="input_text_box">
         <input id="title_input_task" class="title_input_task" value="Title" />
         <input id="body_input_task" class="body_input_task" value="Description" />
+        <!-- CR minor - there's a way to set placeholder values with css without setting the value itself -->
       </div>
       <button id="input_add_button" type="button" onclick="inputButtonAddTask()" class="mdc-button--raised" style="margin: 5%;">
         <span class="mdc-button__label">Add</span>
@@ -36,6 +39,7 @@
     <div class="answers_tab">
       <h2>Remaining Tasks</h2>
       <div id="answers">
+        <!-- answers? -->
       </div>
     </div>
 
@@ -45,7 +49,7 @@
       </div>
       <div id="done_tasks_tab" class="done_tasks_tab">
         <label id="flag" style="display: none;">0</label>
-        <!-- CR Minor- it would be so much easier to have this initial example of TODO items if you had a way to convert the raw data to the full task element  -->
+        <!-- CR major - don't save your data in elemnts. also, flag is not indicative enough and could be overrided by accident -->
       </div>
       <button id="hide/show_btn" class="hide/show_btn mdc-button mdc-button--outlined " type="button" onclick="hideDone()"> Hide </button>
     </div>

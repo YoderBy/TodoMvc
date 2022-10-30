@@ -16,17 +16,22 @@ window.addEventListener('load', function () {
 })
 
 function WaitForInput(location) {
+  //CR Minor - naming. a more indicative name (like setClearEventListener)
   document.getElementById(location).addEventListener("click", function (stroke) {
+    //CR Minor - no need for stroke here
     MakeInputReady(location);
   });
 }
 
 function MakeInputReady(location) {
+  //CR Minor - names should tell anyone who uses the function what the code inside does, this tells the code inside what its purpose is
+  //           should probably be something like 'clearTextBox'
   document.getElementById(location).value = '';
   document.getElementById(location).style.fontStyle = "normal";
   document.getElementById(location).style.color = "black";
 }
 function ReturnInputToStyleNormal(location) {
+  //CR Minor - why not just make this a CSS class?
   document.getElementById(location).style.fontStyle = "italic";
   document.getElementById(location).style.color = "lightgrey";
 }
@@ -36,7 +41,6 @@ function hideDone() {
   document.getElementById("hide/show_btn").innerHTML = isVisible ? "Hide" : "Show";
   document.getElementById("flag").innerHTML = isVisible ? 0 : 1;
 }
-//CR Minor - without changing the functionality at all (which I think you should), look how much more elegant this function could be
 
 function purify(str) {//from the web https://portswigger.net/web-security/cross-site-scripting/preventing
   return String(str).replace(/[^\w. ]/gi, function (c) {
@@ -69,11 +73,15 @@ function resetAllInputBoxs() {
 function inputButtonAddTask() {
   inputs = getInputValues();
   const title_input_value = inputs[0], body_input_value = inputs[1];
+  //CR Minor - could use this
+  // const [title_input_value, body_input_value] = getInputValues();
   addTask(title_input_value, body_input_value, document.getElementById('answers'));
   resetAllInputBoxs();
 }
 function getTime() {
   var today = new Date();
+  //CR Minor - use today.toLocaleTimeString.
+  //CR Trivial - also, seeing as you only use the time part and not the date, 'today' is a weird name to use
   if (today.getMinutes() < 10) {
     var time = today.getHours() + ":0" + today.getMinutes();
   }

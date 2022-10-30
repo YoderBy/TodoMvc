@@ -27,11 +27,14 @@ function generateTask(task_num, title_input_value, body_input_value) {
     `;
   new_task.id = `task_${pure_task_num}`;
   new_task.classList.add("task");
-
+  //CR Major - this works as a way to avoid XSS, but it's better to avoid writing HTML as strings. use document.createElement
   return new_task;
 }
 
 function addTask(title_input_value, body_input_value, task_location) {
+  //CR Minor - use camelCase for parameter names
+  //CR Minor - no need for _input_value, this function only needs to know what the title is and that the description is
+  //           (in general, a function should know only what it does, not how it's used)
   const task_num = generateTaskNum();
   const new_task = generateTask(task_num, title_input_value, body_input_value);
   task_location.appendChild(new_task);
@@ -54,19 +57,24 @@ function removeTask(id) {
 function moveTo(id, location) {
   const victim_div = document.getElementById(`task_${id}`);
   const re_born = victim_div.cloneNode(true);//https://stackoverflow.com/questions/19482076/how-to-duplicate-a-div-in-javascript
-  location.appendChild(re_born); //adding
+  location.appendChild(re_born); //adding  // CR minor - how is this comment helping
   victim_div.remove();
   taskModificaiton(id);
 }
 
 function taskModificaiton(id) {
+  //CR Minor - function names should be verbs 
   //this is so ugly
+  //CR Minor - it is. consider adding a generateTask function that returns a task div without adding it to the DOM
   const task = document.getElementById(`task_${id}`);
   const location = task.parentNode;
   if (location.id == 'done_tasks_tab') {
+    //CR Minor - use === instead of ==
     document.getElementById(`task${id}_btn`).setAttribute("onclick", `moveTo(${id}, document.getElementById('answers'))`);
     document.getElementById(`task${id}_btn`).style.backgroundColor = "lightcoral";
+    //CR Minor - don't include style in the JS
     document.getElementById(`task_time_description${id}`).innerHTML = "Finished At: ";
+    //CR Minor - prefer .innertext over .innerHTML
   }
   if (location.id == 'answers') {
     document.getElementById(`task${id}_btn`).setAttribute("onclick", `moveTo(${id}, document.getElementById('done_tasks_tab'))`);
@@ -74,6 +82,10 @@ function taskModificaiton(id) {
     document.getElementById(`task_time_description${id}`).innerHTML = "Added At: ";
   
   }
+  //CR Major - using many if statements is bad design. consider using a switch case statement instead
+  //           even better- make all the style changes set in the CSS.
+  //           then, consider whether there will be more than 2 locations for the TODO items. if no- you can have a boolean for whether the task is done
+  //           if you want to future-proof your code for a possibility of another task location, add a 'location' or 'state' parameter (that can be 'TODO' or 'DONE' or anything else) and handle each option accordingly 
   document.getElementById(`task_time${id}`).innerHTML = `${getTime()}`;
 }
 function editTask(id) {
