@@ -24,4 +24,5 @@
 
 # bugs
 - by default, an item's description will be "description", but if you click the description textbox its empty- decide what is the wanted functionality and make it consistent
+
 - clicking a full textbox clears it (selecting it via pressing TAB doesn't)
