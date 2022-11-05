@@ -1,7 +1,6 @@
 
 window.addEventListener('load', function () {
   const input_task_form = document.getElementById("input_box");
-
   input_task_form.addEventListener("keypress", function (stroke) {
     inputs = getInputValues();
     const title_input_value = inputs[0], body_input_value = inputs[1];
@@ -11,29 +10,29 @@ window.addEventListener('load', function () {
       resetAllInputBoxs();
     }
   });
-  WaitForInput("body_input_task");
-  WaitForInput("title_input_task");
+  setClearEventListener("body_input_task");
+  setClearEventListener("title_input_task");
 })
 
-function WaitForInput(location) {
-  //CR Minor - naming. a more indicative name (like setClearEventListener)
-  document.getElementById(location).addEventListener("click", function (stroke) {
-    //CR Minor - no need for stroke here
-    MakeInputReady(location);
+function setClearEventListener(location) {
+  //CR Minor - naming. a more indicative name (like setClearEventListener) Accepted
+  document.getElementById(location).addEventListener("focus", function(stroke) {
+    //CR Minor - no need for stroke here Accepted Actaully it does needed
+    resetInputBoxes(location);
   });
 }
 
-function MakeInputReady(location) {
+function resetInputBoxes(location) {
   //CR Minor - names should tell anyone who uses the function what the code inside does, this tells the code inside what its purpose is
   //           should probably be something like 'clearTextBox'
   document.getElementById(location).value = '';
-  document.getElementById(location).style.fontStyle = "normal";
-  document.getElementById(location).style.color = "black";
+  document.getElementById(location).classList.remove("input_style_default");
+  document.getElementById(location).classList.add("input_style_writing");
 }
 function ReturnInputToStyleNormal(location) {
-  //CR Minor - why not just make this a CSS class?
-  document.getElementById(location).style.fontStyle = "italic";
-  document.getElementById(location).style.color = "lightgrey";
+  //CR Minor - why not just make this a CSS class? Accepted
+  document.getElementById(location).classList.add("input_style_default");
+  document.getElementById(location).classList.remove("input_style_writing");
 }
 function hideDone() {
   isVisible = !!parseInt(document.getElementById("flag").innerHTML);

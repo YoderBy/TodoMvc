@@ -1,3 +1,11 @@
+.input_style_default{
+  font-style:italic;
+  color:lightgrey;
+}
+.input_style_writing{
+  font-style :normal;
+  color:black;
+}
 .yosef-mdc-button{
   position: relative;
   display: inline-block;
@@ -76,22 +84,18 @@ body {
 
 .title_input_task {
   margin-left: 10%;
-  color: lightgrey;
   font-size: 20px;
   border-style: none;
   overflow: hidden;
   font-weight: bold;
-  font-style: italic;
 }
 
 .body_input_task {
   margin-left: 10%;
-  color: lightgrey;
   font-size: 20px;
   border-style: none;
   overflow: hidden;
   font-weight: bold;
-  font-style: italic;
 }
 
 /* Middle Part Of The Site
