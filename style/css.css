@@ -1,4 +1,40 @@
+.yosef-mdc-button{
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 4px;
+  padding: 0 16px;
+  min-width: 64px;
+  height: 36px;
+  vertical-align: middle;
+  text-align: center;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  background-color:#6200EE;
+  color:white;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 
+}
+.yosef-mdc-button-outlined{
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 0 16px;
+  min-width: 64px;
+  height: 36px;
+  vertical-align: middle;
+  text-align: center;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  background-color:white;
+  border-style:solid;
+  border-color:#6200EE;
+  color:#6200EE;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+
+}
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: aliceblue;
@@ -89,7 +125,10 @@ body {
 
 .edt {
   margin: 0 1% 0 1%;
-  background-color: rgb(199, 185, 243);
+  border-color:#6200EE;
+  border-style:solid;
+  background-color:white;
+  color:#6200EE;
   position: relative;
 }
 

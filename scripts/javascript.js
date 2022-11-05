@@ -35,6 +35,15 @@ function hideDone() {
   document.getElementById("done_tasks_tab").style.display = isVisible ? "block" : "none";
   document.getElementById("hide/show_btn").innerHTML = isVisible ? "Hide" : "Show";
   document.getElementById("flag").innerHTML = isVisible ? 0 : 1;
+  if(isVisible){
+    document.getElementById("hide/show_btn").classList.add("yosef-mdc-button-outlined");
+    document.getElementById("hide/show_btn").classList.remove("yosef-mdc-button");  
+  }
+  else{
+    
+    document.getElementById("hide/show_btn").classList.add("yosef-mdc-button");
+    document.getElementById("hide/show_btn").classList.remove("yosef-mdc-button-outlined");
+  }
 }
 //CR Minor - without changing the functionality at all (which I think you should), look how much more elegant this function could be
 
