@@ -164,7 +164,7 @@ body {
   border: none;
 }
 .rmv:after {
-  content: '×';
+  content: 'X';
 }
 .visible_task:hover .rmv {
   display: contents;

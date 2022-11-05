@@ -72,13 +72,15 @@ function generateTask(taskNum, titleInputValue, bodyInputValue) {
   const remove_button = document.createElement('button');
   remove_button.classList.add("rmv");
   remove_button.setAttribute('onclick',`removeTask(${pure_task_num})`);
+  remove_button.setAttribute('type',`button`);
   visible_task.appendChild(remove_button);
 
 
   new_task.id = `task_${pure_task_num}`;
   new_task.classList.add("task");
+
   //CR Major - this works as a way to avoid XSS, but it's better to avoid writing HTML as strings. use document.createElement
-  //I hope your'e happy now. couse I'm not
+  //I hope your'e happy now. couse I'm
   return new_task;
 
 
