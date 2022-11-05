@@ -35,6 +35,7 @@ function ReturnInputToStyleNormal(location) {
   document.getElementById(location).classList.remove("input_style_writing");
 }
 function hideDone() {
+  
   isVisible = !!parseInt(document.getElementById("flag").innerHTML);
   document.getElementById("done_tasks_tab").style.display = isVisible ? "block" : "none";
   document.getElementById("hide/show_btn").innerHTML = isVisible ? "Hide" : "Show";
