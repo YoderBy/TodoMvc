@@ -40,6 +40,15 @@ function hideDone() {
   document.getElementById("done_tasks_tab").style.display = isVisible ? "block" : "none";
   document.getElementById("hide/show_btn").innerHTML = isVisible ? "Hide" : "Show";
   document.getElementById("flag").innerHTML = isVisible ? 0 : 1;
+  if(isVisible){
+    document.getElementById("hide/show_btn").classList.add("yosef-mdc-button-outlined");
+    document.getElementById("hide/show_btn").classList.remove("yosef-mdc-button");  
+  }
+  else{
+    
+    document.getElementById("hide/show_btn").classList.add("yosef-mdc-button");
+    document.getElementById("hide/show_btn").classList.remove("yosef-mdc-button-outlined");
+  }
 }
 
 function purify(str) {//from the web https://portswigger.net/web-security/cross-site-scripting/preventing

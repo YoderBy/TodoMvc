@@ -5,16 +5,16 @@ function generateTask(task_num, title_input_value, body_input_value) {
   const pure_body_task_content = purify(body_input_value);
   const pure_task_num = purify(task_num);
   new_task.innerHTML = `
-    <div class = "visible_task" ondblclick="edit_btn${pure_task_num}">
+    <div class = "visible_task">
       <div id = "${pure_task_num}_is_editable" style = "display:none">1
       </div>
-      <button type = "button" class = "unchk mdc-button--outlined" id = "task${pure_task_num}_btn" onclick = "moveTo(${pure_task_num},document.getElementById('done_tasks_tab'))">
+      <button type = "button" class = "unchk" id = "task${pure_task_num}_btn" onclick = "moveTo(${pure_task_num},document.getElementById('done_tasks_tab'))">
       </button>
       <div class = "task_input">
         <input class = "task_title" disabled="disabled" id = "title_val_task${pure_task_num}" value = '${pure_title_task_content}'/> 
         <input class = "task_value" disabled="disabled" id = "text_val_task${pure_task_num}" value = '${pure_body_task_content}'/> 
       </div>
-      <button type = "button" class = "edt mdc-button--outlined" id = "edit_btn${pure_task_num}" onclick = "editTask(${pure_task_num})">Edit
+      <button type = "button" class = "edt yosef-mdc-button-outlined" id = "edit_btn${pure_task_num}" onclick = "editTask(${pure_task_num})">Edit
       </button>
       <div class = "time_box">
         <label class = "task_time_description" id = "task_time_description${pure_task_num}">added at:
@@ -95,6 +95,6 @@ function editTask(id) {
   document.getElementById(`edit_btn${id}`).innerHTML = isEditAble ? "Save" : "Edit";
   document.getElementById(`title_val_task${id}`).style.fontStyle = isEditAble ? "italic" : "normal";
   document.getElementById(`text_val_task${id}`).style.fontStyle = isEditAble ? "italic" : "normal";
-  document.getElementById(`edit_btn${id}`).style.backgroundColor = isEditAble ? "rgb(185, 243, 198)" : "rgb(199, 185, 243)";
+  document.getElementById(`edit_btn${id}`).style.backgroundColor = isEditAble ? "rgb(185, 243, 198)" : "rgb(255, 255, 255)";
   document.getElementById(`${id}_is_editable`).innerHTML = isEditAble ? 0 : 1;
 }
