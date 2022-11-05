@@ -80,21 +80,17 @@ function resetAllInputBoxs() {
 
 function inputButtonAddTask() {
   inputs = getInputValues();
-  const title_input_value = inputs[0], body_input_value = inputs[1];
+  const [title_input_value, body_input_value] = getInputValues();
   //CR Minor - could use this
-  // const [title_input_value, body_input_value] = getInputValues();
+  // const [title_input_value, body_input_value] = getInputValues(); cool, accepted
   addTask(title_input_value, body_input_value, document.getElementById('answers'));
   resetAllInputBoxs();
 }
 function getTime() {
-  var today = new Date();
-  //CR Minor - use today.toLocaleTimeString.
-  //CR Trivial - also, seeing as you only use the time part and not the date, 'today' is a weird name to use
-  if (today.getMinutes() < 10) {
-    var time = today.getHours() + ":0" + today.getMinutes();
-  }
-  else {
-    var time = today.getHours() + ":" + today.getMinutes();
-  }
-  return time;
+  var time = new Date();
+  trimmed_time = time.toLocaleTimeString().substring(0, 4)+" " + time.toLocaleTimeString().substring(8,10); 
+  return trimmed_time;
+  //CR Minor - use today.toLocaleTimeString. ACCEPTED
+  //CR Trivial - also, seeing as you only use the time part and not the date, 'today' is a weird name to use ACCEPTED
+
 }
