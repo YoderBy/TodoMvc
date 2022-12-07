@@ -97,8 +97,7 @@ function addTask(titleInputValue, bodyInputValue, taskLocation) {
 
 function generateTaskNum() {
   const task_num = parseInt(window.localStorage.getItem("id_counter"));
-  const update_num = toString(task_num + 1)
-  window.localStorage.setItem("id_counter",update_num);
+  window.localStorage.setItem("id_counter",""+(task_num + 1));
   return task_num;
 }
 
