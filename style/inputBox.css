@@ -1,0 +1,43 @@
+
+.task_input {
+    display: inline-grid;
+    align-content: space-between;
+    width: 50%;
+  }
+  
+  .input_box {
+    border-radius: 5px;
+    /* 5px rounded corners */
+    margin-bottom: 5%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    display: flex;
+    background-color: white;
+    text-align: center;
+  }
+  
+  .input_text_box {
+    border-style: none;
+    width: 85%;
+    display: inline-grid;
+  }
+
+  .input_style_default{
+    font-style:italic;
+    color:lightgrey;
+  }
+  .input_style_writing{
+    font-style :normal;
+    color:black;
+  }
+
+  
+.visible_task {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: stretch;
+  }
+  

@@ -1,11 +1,4 @@
-.input_style_default{
-  font-style:italic;
-  color:lightgrey;
-}
-.input_style_writing{
-  font-style :normal;
-  color:black;
-}
+
 .yosef-mdc-button{
   position: relative;
   display: inline-block;
@@ -59,61 +52,6 @@ body {
   text-align: center;
 }
 
-.task_input {
-  display: inline-grid;
-  align-content: space-between;
-  width: 50%;
-}
-
-.input_box {
-  border-radius: 5px;
-  /* 5px rounded corners */
-  margin-bottom: 5%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
-  display: flex;
-  background-color: white;
-  text-align: center;
-}
-
-.input_text_box {
-  border-style: none;
-  width: 85%;
-  display: inline-grid;
-}
-
-.title_input_task {
-  margin-left: 10%;
-  font-size: 20px;
-  border-style: none;
-  overflow: hidden;
-  font-weight: bold;
-}
-
-.body_input_task {
-  margin-left: 10%;
-  font-size: 20px;
-  border-style: none;
-  overflow: hidden;
-  font-weight: bold;
-}
-
-/* Middle Part Of The Site
-*/
-/* CR minor- could be a different CSS file */
-.task {
-  margin-bottom: 3%;
-}
-
-.visible_task {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: stretch;
-  align-content: stretch;
-}
-
 .answers_tab {
   padding-top: 1%;
   padding-bottom: 10%;
@@ -126,48 +64,6 @@ body {
 
 #answers {
   padding-left: 6%;
-}
-
-.edt {
-  margin: 0 1% 0 1%;
-  border-color:#6200EE;
-  border-style:solid;
-  background-color:white;
-  color:#6200EE;
-  position: relative;
-}
-
-.unchk {
-  border-color: lightgrey;
-  background-color: lightsteelblue;
-  height: 25px;
-  width: 25px;
-  border-radius: 50%;
-  display: inline-block;
-  right: 1%;
-  position: relative;
-}
-
-.rmv { 
-  display: none;
-  top: 0;
-  right: 10px;
-  bottom: 0;
-  width: 40px;
-  height: 40px;
-  margin: 0 1% 0 1%;
-  font-size: 30px;
-  color: rgb(235, 143, 143);
-  margin-bottom: 11px;
-  transition: color 0.2s ease-out;
-  background-color: white;
-  border: none;
-}
-.rmv:after {
-  content: 'X';
-}
-.visible_task:hover .rmv {
-  display: contents;
 }
 .task_value {
   background-color: white;
