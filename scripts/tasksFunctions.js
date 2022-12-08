@@ -96,6 +96,7 @@ function addTask(titleInputValue, bodyInputValue, taskLocation) {
   //CR Minor - use camelCase for parameter names Fixed
   //CR Minor - no need for InputValue, this function only needs to know what the title is and that the description is
   //           (in general, a function should know only what it does, not how it's used)
+  
   const task_num = generateTaskNum();
   const new_task = generateTask(task_num, titleInputValue, bodyInputValue);
   taskLocation.appendChild(new_task);

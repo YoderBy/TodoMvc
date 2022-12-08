@@ -2,7 +2,7 @@
 - don't commit node_modules, it's a 33.4MB folder
 - great commits, very indicative naming!
 
-# Code Design
+# Code Desigg
 - last time I said all the code is in 1 file, now it's in 2 files. this is marginally better but it would be best if each file had only one responsibility (SRP)- 
   - for example, a component based design could have each component (each TODO item for example, the TODO container, the finished tasks container) be a different file, making it much easier to know exactly where to go when you want to add a new feature
   - alternativly, you could split the files so that one file only handles the logic of your app (adding a new TODO item, editing, enabling/disabling the history), and another only updating the DOM (that just recieves commands from the other file)
