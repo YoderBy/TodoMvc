@@ -1,3 +1,8 @@
+
+window.localStorage.setItem("id_counter", "0");
+window.localStorage.setItem("is_hidden", "0");
+
+
 function generateTask(taskNum, titleInputValue, bodyInputValue) {
 
   const cur_time = getTime();
@@ -80,7 +85,8 @@ function generateTask(taskNum, titleInputValue, bodyInputValue) {
   new_task.classList.add("task");
 
   //CR Major - this works as a way to avoid XSS, but it's better to avoid writing HTML as strings. use document.createElement
-  //I hope your'e happy now. couse I'm
+  //I hope your'e happy now. couse I'm not
+
   return new_task;
 
 
@@ -99,11 +105,6 @@ function generateTaskNum() {
   const task_num = parseInt(window.localStorage.getItem("id_counter"));
   window.localStorage.setItem("id_counter",""+(task_num + 1));
   return task_num;
-}
-
-function removeTask(id) {
-  const victim_div = document.getElementById(`task_${id}`);
-  victim_div.remove();
 }
 
 function moveTo(id, location) {
@@ -149,13 +150,36 @@ function modifyTaskForToDo(id){
   document.getElementById(`task_time_description${id}`).innerHTML = "Added At: ";
 }
 
-function editTask(id) {
-  isEditAble = !!parseInt(document.getElementById(`${id}_is_editable`).innerHTML);// 1 return True, 0 return False
-  document.getElementById(`title_val_task${id}`).disabled = isEditAble ? 0 : 1;
-  document.getElementById(`text_val_task${id}`).disabled = isEditAble ? 0 : 1;
-  document.getElementById(`edit_btn${id}`).innerHTML = isEditAble ? "Save" : "Edit";
-  document.getElementById(`title_val_task${id}`).style.fontStyle = isEditAble ? "italic" : "normal";
-  document.getElementById(`text_val_task${id}`).style.fontStyle = isEditAble ? "italic" : "normal";
-  document.getElementById(`edit_btn${id}`).style.backgroundColor = isEditAble ? "rgb(185, 243, 198)" : "rgb(255, 255, 255)";
-  document.getElementById(`${id}_is_editable`).innerHTML = isEditAble ? 0 : 1;
+function hideDone() {
+  isVisible = !!parseInt(window.localStorage.getItem("isHidden"))
+  document.getElementById("done_tasks_tab").style.display = isVisible ? "block" : "none";
+  document.getElementById("hide/show_btn").innerHTML = isVisible ? "Hide" : "Show";
+  isHidden= isVisible ? "0" : "1";
+  window.localStorage.setItem("isHidden", isHidden)
+  
+  if(isVisible){
+    document.getElementById("hide/show_btn").classList.add("yosef-mdc-button-outlined");
+    document.getElementById("hide/show_btn").classList.remove("yosef-mdc-button");  
+  }
+  else{
+    
+    document.getElementById("hide/show_btn").classList.add("yosef-mdc-button");
+    document.getElementById("hide/show_btn").classList.remove("yosef-mdc-button-outlined");
+  }
+}
+
+
+function getTime() {
+  var time = new Date();
+  trimmed_time = time.toLocaleTimeString().substring(0, 4)+" " + time.toLocaleTimeString().substring(8,10); 
+  return trimmed_time;
+  //CR Minor - use today.toLocaleTimeString. ACCEPTED
+  //CR Trivial - also, seeing as you only use the time part and not the date, 'today' is a weird name to use ACCEPTED
+
+}
+
+function purify(str) {//from the web https://portswigger.net/web-security/cross-site-scripting/preventing
+  return String(str).replace(/[^\w. ]/gi, function (c) {
+    return '&#' + c.charCodeAt(0) + ';';
+  });
 }
