@@ -1,10 +1,4 @@
 
-.task_input {
-    display: inline-grid;
-    align-content: space-between;
-    width: 50%;
-  }
-  
   .input_box {
     border-radius: 5px;
     /* 5px rounded corners */

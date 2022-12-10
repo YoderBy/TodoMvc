@@ -1,51 +1,59 @@
 .title_input_task {
-    margin-left: 10%;
-    font-size: 20px;
-    border-style: none;
-    overflow: hidden;
-    font-weight: bold;
-  }
-  
-  .body_input_task {
-    margin-left: 10%;
-    font-size: 20px;
-    border-style: none;
-    overflow: hidden;
-    font-weight: bold;
-  }
-  
-  /* Middle Part Of The Site
-  */
-  /* CR minor- could be a different CSS file */
-  .task {
-    margin-bottom: 3%;
-  }
-  
-  .visible_task {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: stretch;
-    align-content: stretch;
-  }
+  margin-left: 10%;
+  font-size: 20px;
+  border-style: none;
+  overflow: hidden;
+  font-weight: bold;
+}
+
+.body_input_task {
+  margin-left: 10%;
+  font-size: 20px;
+  border-style: none;
+  overflow: hidden;
+  font-weight: bold;
+}
+
+/* Middle Part Of The Site
+*/
+/* CR minor- could be a different CSS file */
+.task {
+  margin-bottom: 3%;
+}
+
+.visible_task {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+}
 
 .task_value {
-    background-color: white;
-    border: none;
-  }
-  .task_title {
-    background-color: white;
-    font-weight: bold;
-    border: none;
-  }
-  .time_box{
-    align-items: flex-start;
-    margin: 0 1% 0 1%;
-    font-style: oblique;
-    font-size: smaller;
-    display: flex;
-    flex-direction: column;
-    color: slategrey;
-  }
-  
+  border: none;
+}
+.task_title {
+  font-weight: bold;
+  border: none;
+}
+.time_box{
+  align-items: flex-start;
+  margin: 0 1% 0 1%;
+  font-style: oblique;
+  font-size: smaller;
+  display: flex;
+  flex-direction: column;
+  color: slategrey;
+}
+
+.task_input {
+  border-color: azure;
+  border-style: outset;
+  border-radius: 0%;
+  display: inline-grid;
+  align-content: space-between;
+  width: 50%;
+  background-color: azure;
+}
+

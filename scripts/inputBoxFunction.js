@@ -49,7 +49,7 @@ function getInputValues() {
     const title_input_task_form = document.getElementById("title_input_task");
     const body_input_task_form = document.getElementById("body_input_task");
   
-    title_input_task_form.value = 'Title ';
+    title_input_task_form.value = 'Title';
     body_input_task_form.value = 'Description';
   
     ReturnInputToStyleNormal("title_input_task");
@@ -58,10 +58,22 @@ function getInputValues() {
   }
   
   function inputButtonAddTask() {
-    inputs = getInputValues();
-    const [title_input_value, body_input_value] = getInputValues();
+    var [title_input_value, body_input_value] = getInputValues();
+    if (body_input_value=='Description'){
+        body_input_value = '';
+    }
     //CR Minor - could use this
     // const [title_input_value, body_input_value] = getInputValues(); cool, accepted
-    addTask(title_input_value, body_input_value, document.getElementById('answers'));
-    resetAllInputBoxs();
+    if(checkForInput()){  
+        addTask(title_input_value, body_input_value, document.getElementById('answers'));
+        resetAllInputBoxs();
+    }
   }
+function checkForInput(){
+    const [title_input_value, body_input_value] = getInputValues();
+    if (title_input_value == '' || title_input_value == "Title"){
+        window.alert("please enter title for the task!");
+        return false;
+    }
+    return true;
+}
