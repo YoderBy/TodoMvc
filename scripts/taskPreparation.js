@@ -6,6 +6,7 @@ function modifyTask(id) {
   
     const task = document.getElementById(`task_${id}`);
     const new_location = task.parentNode;
+
     switch(new_location.id){
       case 'answers':
         ChangedTaskDesignTo(id, 'answers')
@@ -14,14 +15,17 @@ function modifyTask(id) {
         ChangedTaskDesignTo(id, 'done_tasks_tab')
         break;
       }
-      document.getElementById(`task_time${id}`).innerHTML = `${getTime()}`;
-    //CR Major - using many if statements is bad design. consider using a switch case statement instead
+    updateTaskTime(id);
+    
+      //CR Major - using many if statements is bad design. consider using a switch case statement instead
     //           even better- make all the style changes set in the CSS. ((great idea, done))
     //           then, consider whether there will be more than 2 locations for the TODO items. if no- you can have a boolean for whether the task is done
     //           if you want to future-proof your code for a possibility of another task location, add a 'location' or 'state' parameter (that can be 'TODO' or 'DONE' or anything else) 
     //and handle each option accordingly  ((Accepted))
 }
-
+function updateTaskTime(id){
+  document.getElementById(`task_time${id}`).innerHTML = `${getTime()}`;
+}
 function ChangedTaskDesignTo(id, new_location){
     switch(new_location){
         case 'answers':
