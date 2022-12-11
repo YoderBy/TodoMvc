@@ -1,0 +1,44 @@
+
+.edt {
+    margin: 0 1% 0 1%;
+    border-color:#6200EE;
+    border-style:solid;
+    background-color:white;
+    color:#6200EE;
+    position: relative;
+  }
+  
+  .unchk {
+    border-color: lightgrey;
+    background-color: lightsteelblue;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    display: inline-block;
+    right: 1%;
+    position: relative;
+  }
+  
+  .rmv { 
+    display: none;
+    top: 0;
+    right: 10px;
+    bottom: 0;
+    width: 40px;
+    height: 40px;
+    margin: 0 1% 0 1%;
+    font-size: 30px;
+    color: rgb(235, 143, 143);
+    margin-bottom: 11px;
+    transition: color 0.2s ease-out;
+    background-color: white;
+    border: none;
+  }
+  .rmv:after {
+    content: 'X';
+  }
+  
+.visible_task:hover .rmv {
+    display: contents;
+  }
+  
