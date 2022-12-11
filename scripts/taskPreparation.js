@@ -40,8 +40,8 @@ function getTime() {
     var time = new Date();
     trimmed_time = time.toLocaleTimeString().substring(0, 4)+" " + time.toLocaleTimeString().substring(8,10); 
     return trimmed_time;
-    //CR Minor - use today.toLocaleTimeString. ACCEPTED
-    //CR Trivial - also, seeing as you only use the time part and not the date, 'today' is a weird name to use ACCEPTED
+    //CR Minor - use today.toLocaleTimeString. ((ACCEPTED))
+    //CR Trivial - also, seeing as you only use the time part and not the date, 'today' is a weird name to use ((ACCEPTED))
   
   }
   
