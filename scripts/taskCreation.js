@@ -80,7 +80,7 @@ function generateTask(taskNum, titleInputValue, bodyInputValue) {
     new_task.classList.add("task");
   
     //CR Major - this works as a way to avoid XSS, but it's better to avoid writing HTML as strings. use document.createElement
-    //I hope your'e happy now. couse I'm not
+    //((I hope your'e happy now. couse I'm not))
   
     return new_task;
   

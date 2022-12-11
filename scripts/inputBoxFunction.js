@@ -14,22 +14,22 @@ window.addEventListener('load', function () {
   })
   
   function setClearEventListener(location) {
-    //CR Minor - naming. a more indicative name (like setClearEventListener) Accepted
+    //CR Minor - naming. a more indicative name (like setClearEventListener)(( Accepted))
     document.getElementById(location).addEventListener("focus", function(stroke) {
-      //CR Minor - no need for stroke here Accepted Actaully it does needed
+      //CR Minor - no need for stroke here.(( Actaully it does needed))
       resetInputBoxes(location);
     });
   }
 
 function resetInputBoxes(location) {
     //CR Minor - names should tell anyone who uses the function what the code inside does, this tells the code inside what its purpose is
-    //           should probably be something like 'clearTextBox'
+    //           should probably be something like 'clearTextBox' ((Accepted))
     document.getElementById(location).value = '';
     document.getElementById(location).classList.remove("input_style_default");
     document.getElementById(location).classList.add("input_style_writing");
   }
   function ReturnInputToStyleNormal(location) {
-    //CR Minor - why not just make this a CSS class? Accepted
+    //CR Minor - why not just make this a CSS class? ((Accepted))
     document.getElementById(location).classList.add("input_style_default");
     document.getElementById(location).classList.remove("input_style_writing");
   }
@@ -63,7 +63,7 @@ function getInputValues() {
         body_input_value = '';
     }
     //CR Minor - could use this
-    // const [title_input_value, body_input_value] = getInputValues(); cool, accepted
+    // const [title_input_value, body_input_value] = getInputValues();(( cool, accepted))
     if(checkForInput()){  
         addTask(title_input_value, body_input_value, document.getElementById('answers'));
         resetAllInputBoxs();
