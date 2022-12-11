@@ -1,5 +1,6 @@
 
 function editTask(id) {
+    //i thhink it can be rep;aced with something much smaller
     isEditAble = !!parseInt(document.getElementById(`${id}_is_editable`).innerHTML);// 1 return True, 0 return False
     document.getElementById(`title_val_task${id}`).disabled = isEditAble ? 0 : 1;
     document.getElementById(`text_val_task${id}`).disabled = isEditAble ? 0 : 1;
