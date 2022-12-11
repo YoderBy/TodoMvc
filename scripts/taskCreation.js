@@ -2,8 +2,8 @@ function generateTask(taskNum, titleInputValue, bodyInputValue) {
 
     const cur_time = getTime();
     const new_task = document.createElement('div');
-    const pure_title_task_content = titleInputValue;
-    const pure_body_task_content = bodyInputValue;
+    const pure_title_task_content = purify(titleInputValue);
+    const pure_body_task_content = purify(bodyInputValue);
     const pure_task_num = purify(taskNum);
   
     const visible_task = document.createElement('div');

@@ -30,7 +30,5 @@ function hideDone() {
 }
 
 function purify(str) {//from the web https://portswigger.net/web-security/cross-site-scripting/preventing
-  return String(str).replace(/[^\w. ]/gi, function (c) {
-    return '&#' + c.charCodeAt(0) + ';';
-  });
+  return String(str)
 }
