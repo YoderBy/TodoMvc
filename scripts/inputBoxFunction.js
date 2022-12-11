@@ -72,7 +72,7 @@ function getInputValues() {
 function checkForInput(){
     const [title_input_value, body_input_value] = getInputValues();
     if (title_input_value == '' || title_input_value == "Title"){
-        window.alert("please enter title for the task!");
+        window.alert("Please enter title for the task!");
         return false;
     }
     return true;
