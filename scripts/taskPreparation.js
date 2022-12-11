@@ -21,7 +21,8 @@ function modifyTask(id) {
     //           if you want to future-proof your code for a possibility of another task location, add a 'location' or 'state' parameter (that can be 'TODO' or 'DONE' or anything else) 
     //and handle each option accordingly  ((Accepted))
 }
- function ChangedTaskDesignTo(id, new_location){
+
+function ChangedTaskDesignTo(id, new_location){
     switch(new_location){
         case 'answers':
             document.getElementById(`task${id}_btn`).setAttribute("onclick", `moveTo(${id}, document.getElementById('done_tasks_tab'))`);
@@ -42,6 +43,5 @@ function getTime() {
     return trimmed_time;
     //CR Minor - use today.toLocaleTimeString. ((ACCEPTED))
     //CR Trivial - also, seeing as you only use the time part and not the date, 'today' is a weird name to use ((ACCEPTED))
-  
-  }
+}
   

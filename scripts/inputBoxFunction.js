@@ -13,13 +13,13 @@ window.addEventListener('load', function () {
     setClearEventListener("title_input_task");
   })
   
-  function setClearEventListener(location) {
+function setClearEventListener(location) {
     //CR Minor - naming. a more indicative name (like setClearEventListener)(( Accepted))
     document.getElementById(location).addEventListener("focus", function(stroke) {
       //CR Minor - no need for stroke here.(( Actaully it does needed))
       resetInputBoxes(location);
     });
-  }
+}
 
 function resetInputBoxes(location) {
     //CR Minor - names should tell anyone who uses the function what the code inside does, this tells the code inside what its purpose is
@@ -27,14 +27,14 @@ function resetInputBoxes(location) {
     document.getElementById(location).value = '';
     document.getElementById(location).classList.remove("input_style_default");
     document.getElementById(location).classList.add("input_style_writing");
-  }
+}
+
   function ReturnInputToStyleNormal(location) {
     //CR Minor - why not just make this a CSS class? ((Accepted))
     document.getElementById(location).classList.add("input_style_default");
     document.getElementById(location).classList.remove("input_style_writing");
-  }
-
-  
+}
+ 
 function getInputValues() {
     const title_input_task_form = document.getElementById("title_input_task");
     const body_input_task_form = document.getElementById("body_input_task");
@@ -43,9 +43,9 @@ function getInputValues() {
     const body_input_value = body_input_task_form.value;
   
     return [title_input_value, body_input_value];
-  }
+}
   
-  function resetAllInputBoxs() {
+function resetAllInputBoxs() {
     const title_input_task_form = document.getElementById("title_input_task");
     const body_input_task_form = document.getElementById("body_input_task");
   
@@ -55,9 +55,9 @@ function getInputValues() {
     ReturnInputToStyleNormal("title_input_task");
     ReturnInputToStyleNormal("body_input_task");
   
-  }
+}
   
-  function inputButtonAddTask() {
+function inputButtonAddTask() {
     var [title_input_value, body_input_value] = getInputValues();
     if (body_input_value=='Description'){
         body_input_value = '';
@@ -68,7 +68,7 @@ function getInputValues() {
         addTask(title_input_value, body_input_value, document.getElementById('answers'));
         resetAllInputBoxs();
     }
-  }
+}
 function checkForInput(){
     const [title_input_value, body_input_value] = getInputValues();
     if (title_input_value == '' || title_input_value == "Title"){
