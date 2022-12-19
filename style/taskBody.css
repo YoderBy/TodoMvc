@@ -5,6 +5,7 @@
   overflow: hidden;
   font-weight: bold;
 }
+/* CR Minor- CSS convention is using kebab-case, not snake_case */
 
 .body_input_task {
   margin-left: 10%;
@@ -16,7 +17,6 @@
 
 /* Middle Part Of The Site
 */
-/* CR minor- could be a different CSS file ((ACCPETED))*/ 
 .task {
   margin-bottom: 3%;
 }

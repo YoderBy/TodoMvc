@@ -2,12 +2,14 @@
 function editTask(id) {
     //i thhink it can be rep;aced with something much smaller
     isEditAble = !!parseInt(document.getElementById(`${id}_is_editable`).innerHTML);// 1 return True, 0 return False
+    //CR Major - I already told you not to store data in the DOM
     document.getElementById(`title_val_task${id}`).disabled = isEditAble ? 0 : 1;
     document.getElementById(`text_val_task${id}`).disabled = isEditAble ? 0 : 1;
     document.getElementById(`edit_btn${id}`).innerHTML = isEditAble ? "Save" : "Edit";
     document.getElementById(`title_val_task${id}`).style.fontStyle = isEditAble ? "italic" : "normal";
     document.getElementById(`text_val_task${id}`).style.fontStyle = isEditAble ? "italic" : "normal";
     document.getElementById(`edit_btn${id}`).style.backgroundColor = isEditAble ? "rgb(185, 243, 198)" : "rgb(255, 255, 255)";
+    //CR Major - don't set style in the JS
     document.getElementById(`${id}_is_editable`).innerHTML = isEditAble ? 0 : 1;
 }
 

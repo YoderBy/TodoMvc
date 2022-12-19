@@ -14,35 +14,38 @@ window.addEventListener('load', function () {
   })
   
 function setClearEventListener(location) {
-    //CR Minor - naming. a more indicative name (like setClearEventListener)(( Accepted))
     document.getElementById(location).addEventListener("focus", function(stroke) {
       //CR Minor - no need for stroke here.(( Actaully it does needed))
+      //JS doesn't require you to specify the paramaters you recieve if you don't use them. you can even make this an anonymous function by changing it to
+      // addEventListener("focus", () => resetInputBoxes(location);
       resetInputBoxes(location);
     });
 }
 
 function resetInputBoxes(location) {
-    //CR Minor - names should tell anyone who uses the function what the code inside does, this tells the code inside what its purpose is
-    //           should probably be something like 'clearTextBox' ((Accepted))
     document.getElementById(location).value = '';
     document.getElementById(location).classList.remove("input_style_default");
     document.getElementById(location).classList.add("input_style_writing");
 }
 
   function ReturnInputToStyleNormal(location) {
-    //CR Minor - why not just make this a CSS class? ((Accepted))
+    //CR Minor - if these classes are mutually exclusive why not use css's :not()?
     document.getElementById(location).classList.add("input_style_default");
     document.getElementById(location).classList.remove("input_style_writing");
+
 }
  
 function getInputValues() {
     const title_input_task_form = document.getElementById("title_input_task");
     const body_input_task_form = document.getElementById("body_input_task");
+    //CR Minor - why not define these constants outside the scope of the function so that the other functions could access it as well? 
   
     const title_input_value = title_input_task_form.value;
     const body_input_value = body_input_task_form.value;
   
     return [title_input_value, body_input_value];
+    //CR Minor - you could also make this an object with {"title": "the title", "description": "the description"}
+    //           this way it's more open to additions in the future
 }
   
 function resetAllInputBoxs() {
@@ -62,8 +65,6 @@ function inputButtonAddTask() {
     if (body_input_value=='Description'){
         body_input_value = '';
     }
-    //CR Minor - could use this
-    // const [title_input_value, body_input_value] = getInputValues();(( cool, accepted))
     if(checkForInput()){  
         addTask(title_input_value, body_input_value, document.getElementById('answers'));
         resetAllInputBoxs();
@@ -71,8 +72,11 @@ function inputButtonAddTask() {
 }
 function checkForInput(){
     const [title_input_value, body_input_value] = getInputValues();
+    //CR Minor - why get the values twice instead of making a function named "validateInput" that recieves it as a parameter? better SRP and more testable
     if (title_input_value == '' || title_input_value == "Title"){
+      //CR Minor - look how much work just to avoid adding these to the css
         window.alert("Please enter title for the task!");
+        //CR Minor - see comment about alerts in the general notes
         return false;
     }
     return true;

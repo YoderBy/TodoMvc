@@ -38,6 +38,8 @@
     content: 'X';
   }
   
+/* CR Major- you already know these are not good class names */
+
 .visible_task:hover .rmv {
     display: contents;
   }

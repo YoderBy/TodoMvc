@@ -1,6 +1,7 @@
 function generateTask(taskNum, titleInputValue, bodyInputValue) {
 
     const cur_time = getTime();
+    //CR Minor - don't save space on variable names
     const new_task = document.createElement('div');
     const pure_title_task_content = purify(titleInputValue);
     const pure_body_task_content = purify(bodyInputValue);
@@ -79,8 +80,7 @@ function generateTask(taskNum, titleInputValue, bodyInputValue) {
     new_task.id = `task_${pure_task_num}`;
     new_task.classList.add("task");
   
-    //CR Major - this works as a way to avoid XSS, but it's better to avoid writing HTML as strings. use document.createElement
-    //((I hope your'e happy now. couse I'm not))
+    //CR Major - this is a giant function. split to smaller parts (more testable and more readable)
   
     return new_task;
   
@@ -88,9 +88,9 @@ function generateTask(taskNum, titleInputValue, bodyInputValue) {
 }
   
 function addTask(titleInputValue, bodyInputValue, taskLocation) {
-    //CR Minor - use camelCase for parameter names Fixed
     //CR Minor - no need for InputValue, this function only needs to know what the title is and that the description is
     //           (in general, a function should know only what it does, not how it's used)
+    //           NOT FIXED
     
     const task_num = generateTaskNum();
     const new_task = generateTask(task_num, titleInputValue, bodyInputValue);
