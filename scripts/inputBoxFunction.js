@@ -38,18 +38,18 @@ function resetInputBoxes(location) {
 function getInputValues() {
     const title_input_task_form = document.getElementById("title_input_task");
     const body_input_task_form = document.getElementById("body_input_task");
-    //CR Minor - why not define these constants outside the scope of the function so that the other functions could access it as well? 
+    //CR Minor - why not define these constants outside the scope of the function so that the other functions could access it as well? ((they can by calling this function - I ant it to update]))
     
     const title_input_value = title_input_task_form.value;
     const body_input_value = body_input_task_form.value;
-  
+  alert 
     if (body_input_value=='Description'){
       body_input_value = '';
     }
     
     return [title_input_value, body_input_value];
     //CR Minor - you could also make this an object with {"title": "the title", "description": "the description"}
-    //           this way it's more open to additions in the future
+    //    this way it's more open to additions in the future
 }
   
 function resetAllInputBoxs() {
@@ -74,14 +74,24 @@ function inputButtonAddTask() {
         resetAllInputBoxs();
     }
 }
+function validateInput(){
+  const [title_input_value, body_input_value] = getInputValues();
+  if (title_input_value == '' || title_input_value == "Title"){
+    return false;
+  }
+  return true;
+
+}
+ 
 function checkForInput(){
     const [title_input_value, body_input_value] = getInputValues();
     //CR Minor - why get the values twice instead of making a function named "validateInput" that recieves it as a parameter? better SRP and more testable
-    if (title_input_value == '' || title_input_value == "Title"){
-      //CR Minor - look how much work just to avoid adding these to the css
-        window.alert("Please enter title for the task!");
-        //CR Minor - see comment about alerts in the general notes
-        return false;
+    if (validateInput()){
+      //CR Minor - look how much work just to avoid adding these to the css ((Meaning ?))
+      raiseAlert();
+      //CR Minor - see comment about alerts in the general notes ((FIXED))
+      return false;
     }
+
     return true;
 }
