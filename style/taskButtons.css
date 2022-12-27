@@ -7,6 +7,17 @@
     color:#6200EE;
     position: relative;
   }
+
+  .isedtT {
+    font-style:  italic;
+    background-color: rgb(185, 243,198);
+
+    /*#document.getElementById(`title_val_task${id}`).style.fontStyle = isEditAble ? "italic" : "normal";
+    document.getElementById(`text_val_task${id}`).style.fontStyle = isEditAble ? "italic" : "normal";
+    document.getElementById(`edit_btn${id}`).style.backgroundColor = isEditAble ? "rgb(185, 243, 198)" : "rgb(255, 255, 255)";
+    */
+    
+  }
   
   .unchk {
     border-color: lightgrey;

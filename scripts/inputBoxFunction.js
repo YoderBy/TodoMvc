@@ -39,10 +39,14 @@ function getInputValues() {
     const title_input_task_form = document.getElementById("title_input_task");
     const body_input_task_form = document.getElementById("body_input_task");
     //CR Minor - why not define these constants outside the scope of the function so that the other functions could access it as well? 
-  
+    
     const title_input_value = title_input_task_form.value;
     const body_input_value = body_input_task_form.value;
   
+    if (body_input_value=='Description'){
+      body_input_value = '';
+    }
+    
     return [title_input_value, body_input_value];
     //CR Minor - you could also make this an object with {"title": "the title", "description": "the description"}
     //           this way it's more open to additions in the future
@@ -66,7 +70,7 @@ function inputButtonAddTask() {
         body_input_value = '';
     }
     if(checkForInput()){  
-        addTask(title_input_value, body_input_value, document.getElementById('answers'));
+        addTask(document.getElementById('answers'));
         resetAllInputBoxs();
     }
 }
