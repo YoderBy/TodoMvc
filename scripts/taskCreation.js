@@ -1,5 +1,5 @@
-function generateTask(taskNum, titleInputValue, bodyInputValue) {
 
+function generateTask(taskNum, titleInputValue, bodyInputValue) {
     const cur_time = getTime();
     //CR Minor - don't save space on variable names
     const new_task = document.createElement('div');
@@ -13,6 +13,7 @@ function generateTask(taskNum, titleInputValue, bodyInputValue) {
     
     const div_task_iseditable = document.createElement('div');
     div_task_iseditable.setAttribute('id', `${pure_task_num}_is_editable`);
+    window.localStorage.setItem(`${pure_task_num}_is_editable`, "1");
     div_task_iseditable.style.display = 'none';
     div_task_iseditable.innerHTML = 1;
     visible_task.appendChild(div_task_iseditable);

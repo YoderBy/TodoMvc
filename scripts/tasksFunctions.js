@@ -30,7 +30,3 @@ function hideDone() {
     document.getElementById("hide/show_btn").classList.remove("yosef-mdc-button-outlined");
   }
 }
-
-function purify(str) {//from the web https://portswigger.net/web-security/cross-site-scripting/preventing
-  return String(str)
-} //CR Major - is this necessary?
