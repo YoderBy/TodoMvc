@@ -1,9 +1,8 @@
 window.addEventListener('load', function () {
     const input_task_form = document.getElementById("input_box");
     input_task_form.addEventListener("keypress", function (stroke) {
-      inputs = getInputValues();
-      const title_input_value = inputs[0], body_input_value = inputs[1];
-  
+      input_box = getInputValues();
+      const title_input_value = input_box.title, body_input_value = input_box.description;
       if (stroke.key == "Enter") {
         addTask(title_input_value, body_input_value, document.getElementById('answers'));
         resetAllInputBoxs();
@@ -42,14 +41,13 @@ function getInputValues() {
     
     const title_input_value = title_input_task_form.value;
     const body_input_value = body_input_task_form.value;
-  alert 
+
     if (body_input_value=='Description'){
       body_input_value = '';
     }
-    
-    return [title_input_value, body_input_value];
+    return {"title":title_input_value, "description": body_input_value}
     //CR Minor - you could also make this an object with {"title": "the title", "description": "the description"}
-    //    this way it's more open to additions in the future
+    //    this way it's more open to additions in the future ((Nice))
 }
   
 function resetAllInputBoxs() {
@@ -65,9 +63,9 @@ function resetAllInputBoxs() {
 }
   
 function inputButtonAddTask() {
-    var [title_input_value, body_input_value] = getInputValues();
-    if (body_input_value=='Description'){
-        body_input_value = '';
+    var input_box = getInputValues();
+    if (input_box.description == 'Description'){
+        input_box.description = '';
     }
     if(checkForInput()){  
         addTask(document.getElementById('answers'));
@@ -75,8 +73,8 @@ function inputButtonAddTask() {
     }
 }
 function validateInput(){
-  const [title_input_value, body_input_value] = getInputValues();
-  if (title_input_value == '' || title_input_value == "Title"){
+  const input_box  = getInputValues();
+  if (input_box.title == '' || input_box.title == "Title"){
     return false;
   }
   return true;
@@ -84,8 +82,7 @@ function validateInput(){
 }
  
 function checkForInput(){
-    const [title_input_value, body_input_value] = getInputValues();
-    //CR Minor - why get the values twice instead of making a function named "validateInput" that recieves it as a parameter? better SRP and more testable
+    //CR Minor - why get the values twice instead of making a function named "validateInput" that recieves it as a parameter? better SRP and more testable //((done))
     if (validateInput()){
       //CR Minor - look how much work just to avoid adding these to the css ((Meaning ?))
       raiseAlert();
