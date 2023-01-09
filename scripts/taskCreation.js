@@ -3,9 +3,9 @@ function generateTask(taskNum, titleInputValue, bodyInputValue) {
     const cur_time = getTime();
     //CR Minor - don't save space on variable names
     const new_task = document.createElement('div');
-    const pure_title_task_content = purify(titleInputValue);
-    const pure_body_task_content = purify(bodyInputValue);
-    const pure_task_num = purify(taskNum);
+    const pure_title_task_content = titleInputValue;
+    const pure_body_task_content = bodyInputValue;
+    const pure_task_num = taskNum;
   
     const visible_task = document.createElement('div');
     visible_task.classList.add("visible_task");

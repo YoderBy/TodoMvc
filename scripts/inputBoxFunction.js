@@ -80,7 +80,7 @@ function validateInput(){
   return true;
 
 }
- 
+
 function checkForInput(){
     //CR Minor - why get the values twice instead of making a function named "validateInput" that recieves it as a parameter? better SRP and more testable //((done))
     if (!validateInput()){
@@ -92,61 +92,33 @@ function checkForInput(){
     return true;
 }
 function raiseAlert(error_name, error_text){
-  create_alert_box(error_name, error_text);
+  alertbox = create_alert_box(error_name, error_text);
+  document.getElementById("input_box").appendChild(alertbox);
 }
 
 
 function create_alert_box(error_name, error_text){
-  alertbox = document.getElementsByTagName("body")[0].appendChild(document.createElement('div'));
+  alertbox = document.createElement('div');
   alertbox.id = `${error_name}_alert_box`;
-  alertbox.style.height = document.documentElement.scrollHeight + "px";
-
+  
   h1 = alertbox.appendChild(document.createElement("h1"));
   text = alertbox.appendChild(document.createElement("p"));
   text.innerHTML = error_text;
 
-  alertbox_button = alertbox.appendChild(document.createElement("a"));
+  alertbox_button = alertbox.appendChild(document.createElement("button"));
   alertbox_button.id = "close_alertbox_button";
   alertbox_button.href = "#";
+  alertbox_button.innerHTML= "gdas";
   alertbox_button.focus();
   alertbox_button.onclick = function() { removeCustomAlert(); return false; }
 
   alertbox.style.display = "block";
+
+  return alertbox;
 }
 
-function createCustomAlert(txt) {
-    d = document;
-
-    if(d.getElementById("modalContainer")) return;
-
-    mObj = d.getElementsByTagName("body")[0].appendChild(d.createElement("div"));
-    mObj.id = "modalContainer";
-    mObj.style.height = d.documentElement.scrollHeight + "px";
-
-    alertObj = mObj.appendChild(d.createElement("div"));
-    alertObj.id = "alertBox";
-    if(d.all && !window.opera) alertObj.style.top = document.documentElement.scrollTop + "px";
-    alertObj.style.left = (d.documentElement.scrollWidth - alertObj.offsetWidth)/2 + "px";
-    alertObj.style.visiblity="visible";
-
-    h1 = alertObj.appendChild(d.createElement("h1"));
-    h1.appendChild(d.createTextNode(ALERT_TITLE));
-
-    msg = alertObj.appendChild(d.createElement("p"));
-    //msg.appendChild(d.createTextNode(txt));
-    msg.innerHTML = txt;
-
-    alertbox_button = alertObj.appendChild(d.createElement("a"));
-    alertbox_button.id = "closealertbox_button";
-    alertbox_button.appendChild(d.createTextNode(ALERT_BUTTON_TEXT));
-    alertbox_button.href = "#";
-    alertbox_button.focus();
-    alertbox_button.onclick = function() { removeCustomAlert();return false; }
-
-    alertObj.style.display = "block";
-
-}
 
 function removeCustomAlert(error_name) {
-    document.getElementsByTagName("body")[0].removeChild(document.getElementById(`${error_name}_alert_box`));
+  input_box = document.getElementById("input_box");
+  input_box.removeChild(input_box.children[input_box.children.length-1]);
 }
