@@ -94,9 +94,9 @@ function addTask(taskLocation) {
     //CR Minor - no need for InputValue, this function only needs to know what the title is and that the description is
     //           (in general, a function should know only what it does, not how it's used)
     //           NOT FIXED ((FIXED))
-    const [title_input_value, body_input_value] = getInputValues();
+    inputs = getInputValues();
     const task_num = generateTaskNum();
-    const new_task = generateTask(task_num, title_input_value, body_input_value);
+    const new_task = generateTask(task_num, inputs.title, inputs.description);
     taskLocation.appendChild(new_task);
 }
   

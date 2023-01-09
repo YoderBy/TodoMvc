@@ -35,12 +35,12 @@ function resetInputBoxes(location) {
 }
  
 function getInputValues() {
-    const title_input_task_form = document.getElementById("title_input_task");
-    const body_input_task_form = document.getElementById("body_input_task");
+    var title_input_task_form = document.getElementById("title_input_task");
+    var body_input_task_form = document.getElementById("body_input_task");
     //CR Minor - why not define these constants outside the scope of the function so that the other functions could access it as well? ((they can by calling this function - I ant it to update]))
     
-    const title_input_value = title_input_task_form.value;
-    const body_input_value = body_input_task_form.value;
+    var title_input_value = title_input_task_form.value;
+    var body_input_value = body_input_task_form.value;
 
     if (body_input_value=='Description'){
       body_input_value = '';
@@ -83,12 +83,70 @@ function validateInput(){
  
 function checkForInput(){
     //CR Minor - why get the values twice instead of making a function named "validateInput" that recieves it as a parameter? better SRP and more testable //((done))
-    if (validateInput()){
+    if (!validateInput()){
       //CR Minor - look how much work just to avoid adding these to the css ((Meaning ?))
-      raiseAlert();
+      raiseAlert("empty_input", "Error");
       //CR Minor - see comment about alerts in the general notes ((FIXED))
       return false;
     }
-
     return true;
+}
+function raiseAlert(error_name, error_text){
+  create_alert_box(error_name, error_text);
+}
+
+
+function create_alert_box(error_name, error_text){
+  alertbox = document.getElementsByTagName("body")[0].appendChild(document.createElement('div'));
+  alertbox.id = `${error_name}_alert_box`;
+  alertbox.style.height = document.documentElement.scrollHeight + "px";
+
+  h1 = alertbox.appendChild(document.createElement("h1"));
+  text = alertbox.appendChild(document.createElement("p"));
+  text.innerHTML = error_text;
+
+  alertbox_button = alertbox.appendChild(document.createElement("a"));
+  alertbox_button.id = "close_alertbox_button";
+  alertbox_button.href = "#";
+  alertbox_button.focus();
+  alertbox_button.onclick = function() { removeCustomAlert(); return false; }
+
+  alertbox.style.display = "block";
+}
+
+function createCustomAlert(txt) {
+    d = document;
+
+    if(d.getElementById("modalContainer")) return;
+
+    mObj = d.getElementsByTagName("body")[0].appendChild(d.createElement("div"));
+    mObj.id = "modalContainer";
+    mObj.style.height = d.documentElement.scrollHeight + "px";
+
+    alertObj = mObj.appendChild(d.createElement("div"));
+    alertObj.id = "alertBox";
+    if(d.all && !window.opera) alertObj.style.top = document.documentElement.scrollTop + "px";
+    alertObj.style.left = (d.documentElement.scrollWidth - alertObj.offsetWidth)/2 + "px";
+    alertObj.style.visiblity="visible";
+
+    h1 = alertObj.appendChild(d.createElement("h1"));
+    h1.appendChild(d.createTextNode(ALERT_TITLE));
+
+    msg = alertObj.appendChild(d.createElement("p"));
+    //msg.appendChild(d.createTextNode(txt));
+    msg.innerHTML = txt;
+
+    alertbox_button = alertObj.appendChild(d.createElement("a"));
+    alertbox_button.id = "closealertbox_button";
+    alertbox_button.appendChild(d.createTextNode(ALERT_BUTTON_TEXT));
+    alertbox_button.href = "#";
+    alertbox_button.focus();
+    alertbox_button.onclick = function() { removeCustomAlert();return false; }
+
+    alertObj.style.display = "block";
+
+}
+
+function removeCustomAlert(error_name) {
+    document.getElementsByTagName("body")[0].removeChild(document.getElementById(`${error_name}_alert_box`));
 }
