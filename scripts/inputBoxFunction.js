@@ -109,15 +109,13 @@ function create_alert_box(error_name, error_text){
   alertbox_button.id = "close_alertbox_button";
   alertbox_button.href = "#";
   alertbox_button.innerHTML= "gdas";
-  alertbox_button.focus();
-  alertbox_button.onclick = function() { removeCustomAlert(); return false; }
+  alertbox_button.classList.add("alertbox_button");
+  alertbox_button.onclick = function() {removeCustomAlert();}
 
-  alertbox.style.display = "block";
+  alertbox.classList.add("alertbox");
 
   return alertbox;
 }
-
-
 function removeCustomAlert(error_name) {
   input_box = document.getElementById("input_box");
   input_box.removeChild(input_box.children[input_box.children.length-1]);
